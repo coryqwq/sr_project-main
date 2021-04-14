@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public bool isGrounded = true;
 
-    private Vector3 input = Vector3.zero;
+    public Vector3 input = Vector3.zero;
 
     public float speed = 1f;
     public float speedDefault = 1f;
@@ -34,8 +34,9 @@ public class PlayerController : MonoBehaviour
     public bool flag0 = false;
     public bool flag1 = false;
     public bool flag2 = false;
-
     public bool flag3 = false;
+    public bool flag4 = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,13 +73,29 @@ public class PlayerController : MonoBehaviour
 
         //player attack sequence
         PlayerAttack();
+
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
+        {
+            if (flag4 == false)
+            {
+                anim.SetTrigger("Alive");
+                flag4 = true;
+            }
+            else
+            {
+                anim.SetTrigger("Wake");
+            }
+        }
     }
 
 
     private bool EnablePlayerMovement()
     {
-        //stop movement if both inputs are true, //stop movement if attack animation is playing
-        if ((Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)) || anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        //stop movement if dead animation is playing, if both inputs are true, stop movement if attack animation is playing
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead") 
+            || anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack")
+            || (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)) 
+            || (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)))
         {
             input.x = 0;
             return false;
@@ -119,12 +136,12 @@ public class PlayerController : MonoBehaviour
     private void PlayerFlipSprite()
     {
         //flip player sprite when moving left/right
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             GetComponent<SpriteRenderer>().flipX = true;
             direction = 1;
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             GetComponent<SpriteRenderer>().flipX = false;
             direction = -1;
@@ -134,8 +151,10 @@ public class PlayerController : MonoBehaviour
     private void PlayerDoubleJump()
     {
         //player double jump, reset if on ground
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !doubleJump && 
-            !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart")  && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !doubleJump
+            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart")  
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") 
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             jump = true;
             if (!isGrounded)
@@ -153,7 +172,7 @@ public class PlayerController : MonoBehaviour
     {
         //player dash, can dash once after elasped time is greater than the dash duration
         //player movement speed increases indefinitely after dash, but resets to default if horizontal direction changes
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && elapsedTime > dashDuration)
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && elapsedTime > dashDuration && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             dash = true;
             if (input.x != 0)
@@ -208,7 +227,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //player down attack
-        if (!isGrounded && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+        if (!isGrounded && (doubleJump || !dash) && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
         {
             anim.SetBool("DownAttack", true);
         }
@@ -224,7 +243,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart"))
                 {
-                    rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * 5 * Time.deltaTime;
+                    rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * 4 * Time.deltaTime;
                 }
                 else
                 {
@@ -247,7 +266,7 @@ public class PlayerController : MonoBehaviour
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack0") && flag0 == false)
         {
-            rb.AddForce(new Vector3(Mathf.Abs(1 + rb.velocity.x) * direction, 0, 0) * dashForce, ForceMode.Impulse);
+            rb.AddForce(new Vector3(Mathf.Abs(1 + rb.velocity.x) * direction, 0, 0) * attackForce, ForceMode.Impulse);
             flag0 = true;
         }
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack1") && flag1 == false)
@@ -259,12 +278,12 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                rb.AddForce(new Vector3(direction, 0, 0) * attackForce * 2, ForceMode.Impulse);
+                rb.AddForce(new Vector3(direction, 0, 0) * attackForce * 1.8f, ForceMode.Impulse);
                 flag2 = true;
             }
             else
             {
-                rb.AddForce(new Vector3(direction, 2, 0) * attackForce, ForceMode.Impulse);
+                rb.AddForce(new Vector3(direction * 0.75f, 1, 0) * attackForce * 2.2f, ForceMode.Impulse);
                 flag2 = true;
             }
         }
@@ -284,12 +303,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector3(input.x, rb.velocity.y, 0);
         }
-        if (dash && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerStandby"))
+        if (dash)
         {
+            if (!isGrounded)
+            {
+                rb.velocity += new Vector3(direction, 1, 0) * dashForce;
+            }
+            else
+            {
+                rb.velocity += new Vector3(direction, 0, 0) * dashForce;
+            }
             elapsedTime = 0;
-            rb.velocity += new Vector3(direction, 0, 0) * dashForce;
-            rb.velocity += new Vector3(0, 1, 0) * dashForce * 0.25f;
-
             dash = false;
         }
     }
