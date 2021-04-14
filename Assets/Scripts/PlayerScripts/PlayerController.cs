@@ -108,12 +108,11 @@ public class PlayerController : MonoBehaviour
         //slow movement speed of player in air vs on ground
         if (!isGrounded)
         {
-
-            input.x = Input.GetAxis("Horizontal") * speed * 0.8f;
+            input.x = Input.GetAxisRaw("Horizontal") * speed * 0.8f;
         }
         else
         {
-            input.x = Input.GetAxis("Horizontal") * speed;
+            input.x = Input.GetAxisRaw("Horizontal") * speed;
         }
     }
 
@@ -135,7 +134,8 @@ public class PlayerController : MonoBehaviour
     private void PlayerDoubleJump()
     {
         //player double jump, reset if on ground
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !doubleJump)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !doubleJump && 
+            !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart")  && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             jump = true;
             if (!isGrounded)
@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //change player jump height on input held down
-            else if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow)))
             {
                 rb.velocity += Vector3.up * Physics.gravity.y * jumpMultiplier * Time.deltaTime;
             }
