@@ -21,4 +21,16 @@ public class Scene : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadScene(int index)
+    {
+        PlayerPrefs.SetInt("LoadTransition", 1);
+        StartCoroutine(DelayLoadScene(index));
+    }
+    IEnumerator DelayLoadScene(int index)
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(index);
+    }
 }

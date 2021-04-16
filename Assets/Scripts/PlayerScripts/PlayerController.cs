@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
         //player attack sequence
         PlayerAttack();
 
+        //player wake
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
         {
             if (flag4 == false)
@@ -175,7 +176,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && elapsedTime > dashDuration && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             dash = true;
-            if (input.x != 0)
+            if (rb.velocity.x != 0)
             {
                 speed = speedFast;
             }
@@ -185,14 +186,14 @@ public class PlayerController : MonoBehaviour
     private void PlayerMovementAnimation()
     {
         //transition to player stanby animation if not moving and on ground
-        if (Mathf.Abs(input.x) == 0 && isGrounded)
+        if (Mathf.Abs(rb.velocity.x) == 0 && isGrounded)
         {
             speed = speedDefault;
             anim.SetBool("Move", false);
             anim.SetBool("Standby", true);
         }
         //transition to player move animation if moving and on ground
-        if (Mathf.Abs(input.x) > 0 && isGrounded)
+        if (Mathf.Abs(rb.velocity.x) > 0 && isGrounded)
         {
             anim.SetBool("Standby", false);
             anim.SetBool("Move", true);
@@ -264,6 +265,7 @@ public class PlayerController : MonoBehaviour
             attackSequenceStart = false;
         }
 
+        //add force when player attacks
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack0") && flag0 == false)
         {
             rb.AddForce(new Vector3(Mathf.Abs(1 + rb.velocity.x) * direction, 0, 0) * attackForce, ForceMode.Impulse);
@@ -316,6 +318,11 @@ public class PlayerController : MonoBehaviour
             elapsedTime = 0;
             dash = false;
         }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -327,7 +334,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Jump", false);
             anim.ResetTrigger("JumpStart");
             anim.SetBool("DownAttack", false);
-
         }
     }
     private void OnCollisionExit(Collision collision)
