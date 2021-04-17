@@ -54,6 +54,10 @@ public class PlayerController : MonoBehaviour
             PlayerMovement();
         }
 
+        //transition to player stanby animation if not moving and on ground
+        //transition to player move animation if moving and on ground
+        PlayerMovementAnimation();
+
         //flip player sprite when moving left/right
         PlayerFlipSprite();
 
@@ -64,10 +68,6 @@ public class PlayerController : MonoBehaviour
         //player movement speed increases indefinitely after dash, but resets to default if horizontal direction changes
         PlayerDash();
 
-        //transition to player stanby animation if not moving and on ground
-        //transition to player move animation if moving and on ground
-        PlayerMovementAnimation();
-
         //reset attack animation parameters if player is on standby, move, or jump end animations
         ResetAttackParameters();
 
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         PlayerAttack();
 
         //player wake
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
         {
             if (flag4 == false)
             {
@@ -93,9 +93,9 @@ public class PlayerController : MonoBehaviour
     private bool EnablePlayerMovement()
     {
         //stop movement if dead animation is playing, if both inputs are true, stop movement if attack animation is playing
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead") 
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead")
             || anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack")
-            || (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)) 
+            || (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
             || (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)))
         {
             input.x = 0;
@@ -153,8 +153,8 @@ public class PlayerController : MonoBehaviour
     {
         //player double jump, reset if on ground
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !doubleJump
-            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart")  
-            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") 
+            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart")
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack")
             && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
             jump = true;
@@ -186,14 +186,14 @@ public class PlayerController : MonoBehaviour
     private void PlayerMovementAnimation()
     {
         //transition to player stanby animation if not moving and on ground
-        if (Mathf.Abs(rb.velocity.x) == 0 && isGrounded)
+        if (Mathf.Abs(rb.velocity.x) < 0.1f && isGrounded)
         {
             speed = speedDefault;
             anim.SetBool("Move", false);
             anim.SetBool("Standby", true);
         }
         //transition to player move animation if moving and on ground
-        if (Mathf.Abs(rb.velocity.x) > 0 && isGrounded)
+        if (Mathf.Abs(rb.velocity.x) > 0.1f && isGrounded)
         {
             anim.SetBool("Standby", false);
             anim.SetBool("Move", true);
@@ -325,7 +325,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         //set player is grounded to true, transition to end jump animation
         if (collision.gameObject.CompareTag("Ground"))
@@ -342,6 +342,15 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            StartCoroutine(DelayJumpAnimation());
+        }
+    }
+
+    IEnumerator DelayJumpAnimation()
+    {
+        yield return new WaitForSeconds(0.15f);
+        if (!isGrounded)
+        {
             anim.SetBool("Standby", false);
             anim.SetBool("Move", false);
             anim.SetTrigger("JumpStart");

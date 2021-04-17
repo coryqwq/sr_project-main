@@ -14,6 +14,7 @@ public class CameraFollowPlayer : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //camera follows player
         if (cameraControllerScript.startFollow)
         {
             Vector3 position = Vector3.Lerp(transform.position, (player.transform.position + new Vector3(cameraControllerScript.cameraOffset.x, 0, 0) + offset), speed * Time.deltaTime);

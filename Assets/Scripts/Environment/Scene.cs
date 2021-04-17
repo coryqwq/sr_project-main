@@ -8,6 +8,7 @@ public class Scene : MonoBehaviour
     public Animator transition;
     public void StartLevel()
     {
+        PlayerPrefs.SetInt("SpawnPosition", 0);
         PlayerPrefs.SetInt("LoadTransition", 0);
         StartCoroutine(DelayStartLevel());
     }
