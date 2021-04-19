@@ -174,6 +174,8 @@ MonoBehaviour:
   flag2: 0
   flag3: 0
   flag4: 0
+  friction: {fileID: 13400000, guid: 5b85602039d8856468990c24f5f4d4e8, type: 2}
+  frictionless: {fileID: 13400000, guid: 5746a5faf20420542b245a9fce17e3f8, type: 2}
 --- !u!65 &961670862706035089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -239,10 +241,10 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961670862706035096}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5746a5faf20420542b245a9fce17e3f8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.09
+  m_Radius: 0.2
   m_Height: 0.79
   m_Direction: 1
   m_Center: {x: -0.04, y: 0.06, z: 0}

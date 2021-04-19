@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     public bool flag3 = false;
     public bool flag4 = false;
 
+    public PhysicMaterial friction;
+    public PhysicMaterial frictionless;
+
+    public bool jumpAnim = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +57,14 @@ public class PlayerController : MonoBehaviour
             //slow movement speed of player in air vs on ground
             PlayerMovement();
         }
-
+        if (input.x == 0)
+        {
+            GetComponent<CapsuleCollider>().material = friction;
+        }
+        else
+        {
+            GetComponent<CapsuleCollider>().material = frictionless;
+        }
         //transition to player stanby animation if not moving and on ground
         //transition to player move animation if moving and on ground
         PlayerMovementAnimation();
@@ -157,6 +168,7 @@ public class PlayerController : MonoBehaviour
             && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack")
             && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
+            jumpAnim = true;
             jump = true;
             if (!isGrounded)
             {
@@ -173,7 +185,10 @@ public class PlayerController : MonoBehaviour
     {
         //player dash, can dash once after elasped time is greater than the dash duration
         //player movement speed increases indefinitely after dash, but resets to default if horizontal direction changes
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && elapsedTime > dashDuration && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) 
+            && elapsedTime > dashDuration 
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead")
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             dash = true;
             if (rb.velocity.x != 0)
@@ -222,7 +237,7 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("DownAttack", true);
             }
         }
-        if (isGrounded && anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack2"))
+        if (isGrounded && anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart"))
         {
             anim.SetBool("DownAttack", false);
         }
@@ -333,28 +348,35 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             anim.SetBool("Jump", false);
             anim.ResetTrigger("JumpStart");
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //set player is grounded to true, transition to end jump animation
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpAnim = false;
             anim.SetBool("DownAttack", false);
         }
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        //set player is grounded to false, transition to start jump and jump animation
+        //set player is grounded to false
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            StartCoroutine(DelayJumpAnimation());
+            if (jumpAnim)
+            {
+                anim.SetBool("Standby", false);
+                anim.SetBool("Move", false);
+                anim.SetTrigger("JumpStart");
+                anim.SetBool("Jump", true);
+            }
+
         }
     }
 
-    IEnumerator DelayJumpAnimation()
-    {
-        yield return new WaitForSeconds(0.15f);
-        if (!isGrounded)
-        {
-            anim.SetBool("Standby", false);
-            anim.SetBool("Move", false);
-            anim.SetTrigger("JumpStart");
-            anim.SetBool("Jump", true);
-        }
-    }
+
+
 }

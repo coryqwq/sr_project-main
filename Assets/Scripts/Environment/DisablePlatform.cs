@@ -8,7 +8,9 @@ public class DisablePlatform : MonoBehaviour
     public GameObject[] platform;
     private float elapsed = 0;
     private float duration = 0;
-    private bool flag = false;
+    private bool flag0 = false;
+    private bool flag1 = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,17 +18,17 @@ public class DisablePlatform : MonoBehaviour
     private void Update()
     {
         elapsed += Time.deltaTime;
-        if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && Mathf.Abs(rb.velocity.x) < 0.1f)
+        if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && Mathf.Abs(rb.velocity.x) < 0.1f && flag1)
         {
             DisablePlatforms();
             duration = elapsed + 0.2f;
-            flag = true;
+            flag0 = true;
             
         }
-        if(elapsed > duration && flag)
+        if(elapsed > duration && flag0 && flag1)
         {
             EnablePlatforms();
-            flag = false;
+            flag0 = false;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -35,6 +37,7 @@ public class DisablePlatform : MonoBehaviour
         {
             DisablePlatforms();
         }
+        flag1 = false;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -42,6 +45,7 @@ public class DisablePlatform : MonoBehaviour
         {
             EnablePlatforms();
         }
+        flag1 = true;
     }
 
     void DisablePlatforms()
