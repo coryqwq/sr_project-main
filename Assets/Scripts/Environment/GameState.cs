@@ -8,7 +8,7 @@ public class GameState : MonoBehaviour
     public GameObject blackScreen;
     public Animator playerAnim;
     public GameObject player;
-    public Transform mainCamera;
+    public Transform cameraCompound;
     public Transform cameraFollowTrigger;
 
     public bool flag0 = false;
@@ -16,18 +16,32 @@ public class GameState : MonoBehaviour
 
     private void Start()
     {
-        //set player to spawn on left side of last stage when backtracking portal
-        if(PlayerPrefs.GetInt("SpawnPosition", 0) == -1 && SceneManager.GetActiveScene().buildIndex == 1)
+        //set player to spawn on right side of last stage when backtracking portal
+        if (PlayerPrefs.GetInt("SpawnPosition", 0) == -1)
         {
-            player.transform.position = new Vector3(5.3f, player.transform.position.y, player.transform.position.z);
-            player.GetComponent<SpriteRenderer>().flipX = false;
-            player.GetComponent<PlayerController>().direction = -1;
-
-            mainCamera.position = new Vector3(3.323896f, mainCamera.position.y, mainCamera.position.z);
-            cameraFollowTrigger.position = new Vector3(1.95f, cameraFollowTrigger.position.y, cameraFollowTrigger.position.z);
-
+            SetRightSide();
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                cameraCompound.position = new Vector3(0.02f, cameraCompound.position.y, cameraCompound.position.z);
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                cameraCompound.position = new Vector3(14.9f, cameraCompound.position.y, cameraCompound.position.z);
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                cameraCompound.position = new Vector3(2.43f, cameraCompound.position.y, cameraCompound.position.z);
+            }
         }
     }
+    void SetRightSide()
+    {
+        player.GetComponent<SpriteRenderer>().flipX = false;
+        player.GetComponent<PlayerController>().direction = -1;
+        player.transform.localPosition = new Vector3(-player.transform.localPosition.x, player.transform.localPosition.y, player.transform.localPosition.z);
+        cameraFollowTrigger.localPosition = new Vector3(-cameraFollowTrigger.localPosition.x, cameraFollowTrigger.localPosition.y, cameraFollowTrigger.localPosition.z);
+    }
+
     void Update()
     {
         //white opening transition screen, player in dead animation

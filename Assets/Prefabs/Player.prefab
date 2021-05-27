@@ -176,6 +176,7 @@ MonoBehaviour:
   flag4: 0
   friction: {fileID: 13400000, guid: 5b85602039d8856468990c24f5f4d4e8, type: 2}
   frictionless: {fileID: 13400000, guid: 5746a5faf20420542b245a9fce17e3f8, type: 2}
+  jumpAnim: 0
 --- !u!65 &961670862706035089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.27, y: 0.73, z: 0.2}
+  m_Size: {x: 9.2, y: 0.73, z: 0.2}
   m_Center: {x: 0, y: 3.64, z: -5}
 --- !u!114 &961670862706035088
 MonoBehaviour:

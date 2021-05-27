@@ -11,6 +11,7 @@ public class MapTransition : MonoBehaviour
     {
         if(other.gameObject.name == "Portal0")
         {
+            PlayerPrefs.SetInt("SpawnPosition", 1);
             sceneScript.LoadScene(2);
         }
         if (other.gameObject.name == "Portal1")
@@ -20,6 +21,7 @@ public class MapTransition : MonoBehaviour
         }
         if (other.gameObject.name == "Portal2")
         {
+            PlayerPrefs.SetInt("SpawnPosition", 1);
             sceneScript.LoadScene(3);
         }
         if (other.gameObject.name == "Portal3")
@@ -29,6 +31,7 @@ public class MapTransition : MonoBehaviour
         }
         if (other.gameObject.name == "Portal4")
         {
+            PlayerPrefs.SetInt("SpawnPosition", 1);
             sceneScript.LoadScene(4);
         }
         if (other.gameObject.name == "Portal5")
@@ -38,6 +41,7 @@ public class MapTransition : MonoBehaviour
         }
         if (other.gameObject.name == "Portal6")
         {
+            PlayerPrefs.SetInt("SpawnPosition", 1);
             sceneScript.LoadScene(5);
         }
         if (other.gameObject.name == "Portal7")
@@ -47,6 +51,7 @@ public class MapTransition : MonoBehaviour
         }
         if (other.gameObject.name == "Portal8")
         {
+            PlayerPrefs.SetInt("SpawnPosition", 1);
             sceneScript.LoadScene(6);
         }
         if (other.gameObject.name == "Portal9")
@@ -56,6 +61,7 @@ public class MapTransition : MonoBehaviour
         }
         if (other.gameObject.name == "Portal10")
         {
+            PlayerPrefs.SetInt("SpawnPosition", 1);
             sceneScript.LoadScene(6);
         }
     }
