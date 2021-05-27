@@ -273,10 +273,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart && !isGrounded)
         {
             rb.useGravity = false;
             rb.velocity = Vector3.zero;
+            attackSequenceStart = false;
+        }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart && isGrounded)
+        {
+            rb.velocity = Vector3.zero;
+            rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
             attackSequenceStart = false;
         }
 
