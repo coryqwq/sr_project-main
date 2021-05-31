@@ -14,38 +14,23 @@ public class GameState : MonoBehaviour
     public bool flag0 = false;
     public bool flag1 = false;
 
+    public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f };
     private void Start()
     {
         //set player to spawn on right side of last stage when backtracking portal
         if (PlayerPrefs.GetInt("SpawnPosition", 0) == -1)
         {
-            SetRightSide();
-            if (SceneManager.GetActiveScene().buildIndex == 1)
-            {
-                cameraCompound.position = new Vector3(0.02f, cameraCompound.position.y, cameraCompound.position.z);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                cameraCompound.position = new Vector3(14.9f, cameraCompound.position.y, cameraCompound.position.z);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 3)
-            {
-                cameraCompound.position = new Vector3(2.43f, cameraCompound.position.y, cameraCompound.position.z);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 4)
-            {
-                cameraCompound.position = new Vector3(5.5f, cameraCompound.position.y, cameraCompound.position.z);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            int i = SceneManager.GetActiveScene().buildIndex;
+            if (i == 5)
             {
                 player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + 2.3676666f, player.transform.localPosition.z);
                 cameraCompound.position = new Vector3(15.48f, 0.3510833f, cameraCompound.position.z);
-                Debug.Log("asdf");
             }
-            if (SceneManager.GetActiveScene().buildIndex == 6)
+            else
             {
-                cameraCompound.position = new Vector3(12.2f, cameraCompound.position.y, cameraCompound.position.z);
+                cameraCompound.position = new Vector3(xCamPos[i - 1], cameraCompound.position.y, cameraCompound.position.z);
             }
+            SetRightSide();
         }
     }
     void SetRightSide()
