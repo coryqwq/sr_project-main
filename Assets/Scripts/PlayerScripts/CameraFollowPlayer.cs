@@ -14,10 +14,16 @@ public class CameraFollowPlayer : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //camera follows player
+        //camera follows player past camera trigger
         if (cameraControllerScript.startFollow)
         {
             Vector3 position = Vector3.Lerp(transform.position, (player.transform.position + new Vector3(cameraControllerScript.cameraOffset.x, 0, 0) + offset), speed * Time.deltaTime);
+            transform.position = new Vector3(position.x, position.y * 0.5f, position.z);
+        }
+        //camera follows players y postion, before the camera trigger
+        else
+        {
+            Vector3 position = Vector3.Lerp(transform.position, (new Vector3(transform.position.x, player.transform.position.y, player.transform.position.z) + offset), speed * Time.deltaTime);
             transform.position = new Vector3(position.x, position.y * 0.5f, position.z);
         }
     }
