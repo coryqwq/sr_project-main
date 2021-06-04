@@ -1,68 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapTransition : MonoBehaviour
 {
-    public string sceneName;
-    public Scene sceneScript;
+    public Scene sceneScript; 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Portal0")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", 1);
-            sceneScript.LoadScene(2);
-        }
-        if (other.gameObject.name == "Portal1")
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if(other.gameObject.name == "LeftPortal")
         {
             PlayerPrefs.SetInt("SpawnPosition", -1);
-            sceneScript.LoadScene(1);
+            sceneScript.LoadScene(sceneIndex - 1);
         }
-        if (other.gameObject.name == "Portal2")
+        else if(other.gameObject.name == "RightPortal")
         {
             PlayerPrefs.SetInt("SpawnPosition", 1);
-            sceneScript.LoadScene(3);
-        }
-        if (other.gameObject.name == "Portal3")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", -1);
-            sceneScript.LoadScene(2);
-        }
-        if (other.gameObject.name == "Portal4")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", 1);
-            sceneScript.LoadScene(4);
-        }
-        if (other.gameObject.name == "Portal5")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", -1);
-            sceneScript.LoadScene(3);
-        }
-        if (other.gameObject.name == "Portal6")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", 1);
-            sceneScript.LoadScene(5);
-        }
-        if (other.gameObject.name == "Portal7")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", -1);
-            sceneScript.LoadScene(4);
-        }
-        if (other.gameObject.name == "Portal8")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", 1);
-            sceneScript.LoadScene(6);
-        }
-        if (other.gameObject.name == "Portal9")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", -1);
-            sceneScript.LoadScene(5);
-        }
-        if (other.gameObject.name == "Portal10")
-        {
-            PlayerPrefs.SetInt("SpawnPosition", 1);
-            sceneScript.LoadScene(6);
+            sceneScript.LoadScene(sceneIndex + 1);
         }
     }
 }
