@@ -1100,10 +1100,17 @@ MonoBehaviour:
   - 5.5
   - 0
   - 12.2
-  levelTitle:
-  - test0
-  - test1
-  - test2
+  levelTitles:
+  - Heart of the Forest
+  - Forest Meadow
+  - Azure Lake
+  - Twilit Forest
+  - Near the Floral Flute
+  - Grove of the Spirit Tree
+  - Deep Fairy Forest
+  - Fungos Forest
+  - Reaper's Heart
+  - Temple of Rebirth
   levelTitleText: {fileID: 1290464581}
 --- !u!4 &2018006699
 Transform:
