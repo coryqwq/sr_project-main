@@ -36,7 +36,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.36, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 9180361020742677958}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -217,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff5502fabfa89e4fa3d6695d2d32bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
   sceneScript: {fileID: 0}
 --- !u!114 &73897627
 MonoBehaviour:
@@ -249,3 +249,47 @@ CapsuleCollider:
   m_Height: 0.79
   m_Direction: 1
   m_Center: {x: -0.04, y: 0.06, z: 0}
+--- !u!1 &8207781457016858276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9180361020742677958}
+  - component: {fileID: 5671432565058488185}
+  m_Layer: 0
+  m_Name: SwordCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9180361020742677958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207781457016858276}
+  m_LocalRotation: {x: 0, y: 0, z: 0.8604309, w: 0.5095672}
+  m_LocalPosition: {x: -0.013, y: -0.095, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 961670862706035092}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 118.73}
+--- !u!65 &5671432565058488185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207781457016858276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.8, z: 2}
+  m_Center: {x: 0, y: 0, z: -4}

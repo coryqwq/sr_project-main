@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     public float direction = 1f;
 
     public bool startIdle = true;
+
+    private bool flag0 = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,26 +56,32 @@ public class EnemyController : MonoBehaviour
         if (Mathf.Abs(transform.position.x - referencePos) <= walkDistance && startIdle)
         {
             rb.velocity = new Vector3(direction, 0, 0) * speed;
-            if(direction == 1)
+            if (direction == 1 && flag0)
             {
+                anim.SetBool("walk", true);
                 GetComponent<SpriteRenderer>().flipX = true;
+                flag0 = false;
 
             }
-            else
+            else if (direction == -1 && flag0)
             {
+                anim.SetBool("walk", true);
                 GetComponent<SpriteRenderer>().flipX = false;
+                flag0 = false;
             }
         }
-        else if(startIdle)
+        else if (startIdle)
         {
             rb.velocity = Vector3.zero;
             StartCoroutine(StartIdlePhase());
+            flag0 = true;
             startIdle = false;
         }
     }
 
     IEnumerator StartIdlePhase()
     {
+        anim.SetBool("walk", false);
         GetNextValues();
         yield return new WaitForSeconds(idleTime);
         startIdle = true;
@@ -88,6 +96,17 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.name == "RightnemyDirectionTrigger")
         {
             direction = -1;
+        }
+        if(other.gameObject.name == "SwordCollider")
+        {
+            anim.SetBool("hit", true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "SwordCollider")
+        {
+            anim.SetBool("hit", false);
         }
     }
 }

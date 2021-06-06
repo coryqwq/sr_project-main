@@ -150,12 +150,18 @@ public class PlayerController : MonoBehaviour
         //flip player sprite when moving left/right
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            if(transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
             direction = 1;
         }
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
             direction = -1;
         }
     }
