@@ -47,7 +47,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 2da8ba7816fce774d8164a3ce5bd8d70, type: 2}
-  m_Tag: 
+  m_Tag: hit
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -131,14 +131,14 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: death
+  - m_Name: idle
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: idle
-    m_Type: 4
+  - m_Name: death
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -218,6 +218,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: hit
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: death
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3891952297064218237}
@@ -306,7 +309,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 54efca5c29473fb4b930c49991d70187, type: 2}
-  m_Tag: 
+  m_Tag: death
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

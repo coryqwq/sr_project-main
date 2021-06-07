@@ -22,10 +22,17 @@ public class EnemyController : MonoBehaviour
 
     public bool startIdle = true;
 
-    private bool flag0 = true;
+    public bool flag0 = true;
+    public bool flag1 = true;
+
+    public int hp = 10;
+
+    PlayerController playerControllerScript;
     // Start is called before the first frame update
     void Start()
     {
+        Physics.IgnoreLayerCollision(0,7, true);
+        playerControllerScript = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         GetNextValues();
@@ -53,29 +60,51 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Mathf.Abs(transform.position.x - referencePos) <= walkDistance && startIdle)
+        if (anim.GetBool("hit") && flag0)
         {
-            rb.velocity = new Vector3(direction, 0, 0) * speed;
-            if (direction == 1 && flag0)
-            {
-                anim.SetBool("walk", true);
-                GetComponent<SpriteRenderer>().flipX = true;
-                flag0 = false;
+            rb.velocity = Vector3.zero;
+            rb.AddForce(Vector3.right * playerControllerScript.direction * 3, ForceMode.VelocityChange);
+            flag0 = false;
 
-            }
-            else if (direction == -1 && flag0)
-            {
-                anim.SetBool("walk", true);
-                GetComponent<SpriteRenderer>().flipX = false;
-                flag0 = false;
-            }
         }
-        else if (startIdle)
+        else
+        {
+            flag0 = true;
+        }
+
+        if (Mathf.Abs(transform.position.x - referencePos) <= walkDistance && startIdle && !anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
+        {
+            if (!anim.GetBool("hit"))
+            {
+                rb.velocity = new Vector3(direction, 0, 0) * speed;
+            }
+
+            if (direction == 1)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (direction == -1)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            anim.SetBool("walk", true);
+
+        }
+        else if (startIdle && !anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             rb.velocity = Vector3.zero;
             StartCoroutine(StartIdlePhase());
-            flag0 = true;
             startIdle = false;
+        }
+
+        if(hp <= 0 && !anim.GetBool("hit") && flag1)
+        {
+            anim.SetTrigger("death");
+            flag1 = false;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+        {
+            GameObject.Destroy(gameObject);
         }
     }
 
@@ -97,9 +126,10 @@ public class EnemyController : MonoBehaviour
         {
             direction = -1;
         }
-        if(other.gameObject.name == "SwordCollider")
+        if (other.gameObject.name == "SwordCollider" && !anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             anim.SetBool("hit", true);
+            hp--;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -107,6 +137,14 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.name == "SwordCollider")
         {
             anim.SetBool("hit", false);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<BoxCollider>());
         }
     }
 }
