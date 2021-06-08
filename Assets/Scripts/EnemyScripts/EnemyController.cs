@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody rb;
+    private SpriteRenderer sr;
 
     public float speed = 1f;
 
@@ -17,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public float walkDistanceMax = 5f;
     public float walkDistance = 5f;
 
+    public float pushForce = 3f;
+
     public float referencePos = 0f;
     public float direction = 1f;
 
@@ -24,8 +27,12 @@ public class EnemyController : MonoBehaviour
 
     public bool flag0 = true;
     public bool flag1 = true;
+    public bool flag2 = true;
 
     public int hp = 10;
+
+    public float elapsedTime = 0f;
+    public float duration = 1f;
 
     PlayerController playerControllerScript;
     // Start is called before the first frame update
@@ -35,6 +42,7 @@ public class EnemyController : MonoBehaviour
         playerControllerScript = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        sr = GetComponent<SpriteRenderer>();
         GetNextValues();
     }
 
@@ -60,10 +68,11 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //player pushes enemy on hit
         if (anim.GetBool("hit") && flag0)
         {
             rb.velocity = Vector3.zero;
-            rb.AddForce(Vector3.right * playerControllerScript.direction * 3, ForceMode.VelocityChange);
+            rb.AddForce(Vector3.right * playerControllerScript.direction * pushForce, ForceMode.VelocityChange);
             flag0 = false;
 
         }
@@ -72,6 +81,7 @@ public class EnemyController : MonoBehaviour
             flag0 = true;
         }
 
+        //enemy walks for the walk distance
         if (Mathf.Abs(transform.position.x - referencePos) <= walkDistance && startIdle && !anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             if (!anim.GetBool("hit"))
@@ -79,6 +89,7 @@ public class EnemyController : MonoBehaviour
                 rb.velocity = new Vector3(direction, 0, 0) * speed;
             }
 
+            //flip sprite depending on direction
             if (direction == 1)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
@@ -90,6 +101,7 @@ public class EnemyController : MonoBehaviour
             anim.SetBool("walk", true);
 
         }
+        //enemy idle 
         else if (startIdle && !anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             rb.velocity = Vector3.zero;
@@ -97,15 +109,37 @@ public class EnemyController : MonoBehaviour
             startIdle = false;
         }
 
-        if(hp <= 0 && !anim.GetBool("hit") && flag1)
+        //enemy death
+        if (hp <= 0 && !anim.GetBool("hit") && flag1)
         {
             anim.SetTrigger("death");
             flag1 = false;
         }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+        //enemy fade out
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
-            GameObject.Destroy(gameObject);
+            elapsedTime += Time.deltaTime;
+            sr.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), elapsedTime / anim.GetCurrentAnimatorStateInfo(0).length);
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+            {
+                GameObject.Destroy(gameObject);
+            }
         }
+
+        //enemy fade in
+        if (elapsedTime < duration && flag2)
+        {
+            elapsedTime += Time.deltaTime;
+            sr.color = Color.Lerp(new Color(0,0,0,0), new Color(1,1,1,1), elapsedTime / duration);
+
+            if (sr.color == new Color(1,1,1,1))
+            {
+                elapsedTime = 0;
+                flag2 = false;
+            }
+        }
+
+        
     }
 
     IEnumerator StartIdlePhase()

@@ -44,7 +44,7 @@ public class GameState : MonoBehaviour
     }
     void SetRightSide()
     {
-        player.GetComponent<SpriteRenderer>().flipX = false;
+        player.transform.localScale = new Vector3(player.transform.localScale.x * -1, player.transform.localScale.y, player.transform.localScale.z);
         player.GetComponent<PlayerController>().direction = -1;
         player.transform.localPosition = new Vector3(-player.transform.localPosition.x, player.transform.localPosition.y, player.transform.localPosition.z);
         cameraFollowTrigger.localPosition = new Vector3(-cameraFollowTrigger.localPosition.x, cameraFollowTrigger.localPosition.y, cameraFollowTrigger.localPosition.z);
