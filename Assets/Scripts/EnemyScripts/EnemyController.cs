@@ -43,6 +43,8 @@ public class EnemyController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         sr = GetComponent<SpriteRenderer>();
+        sr.color = new Color(0, 0, 0, 0);
+        sr.sortingOrder = Random.Range(0, 2);
         GetNextValues();
     }
 
@@ -156,7 +158,7 @@ public class EnemyController : MonoBehaviour
         {
             direction = 1;
         }
-        if (other.gameObject.name == "RightnemyDirectionTrigger")
+        if (other.gameObject.name == "RightEnemyDirectionTrigger")
         {
             direction = -1;
         }
