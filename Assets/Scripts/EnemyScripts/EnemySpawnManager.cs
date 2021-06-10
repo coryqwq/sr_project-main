@@ -27,7 +27,7 @@ public class EnemySpawnManager : MonoBehaviour
             //spawn enemies if below enemy count limit
             if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemyCount)
             {
-                Instantiate(enemy, new Vector3(transform.parent.position.x + Random.Range(-bound, bound), ySpawnPos, -0.5f), transform.rotation);
+                Instantiate(enemy, new Vector3(transform.position.x + Random.Range(-bound, bound), ySpawnPos, -0.5f), transform.rotation);
             }
             yield return new WaitForSeconds(spawnRate);
         }
