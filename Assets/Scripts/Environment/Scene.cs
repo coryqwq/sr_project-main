@@ -4,18 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Scene : MonoBehaviour
 {
-    public GameObject titleMenuTransition;
+    public GameObject transitionObject;
     public Animator transition;
-    public void StartLevel()
+    public int transitionTime = 4;
+    public void Start()
     {
-        PlayerPrefs.SetInt("SpawnPosition", 0);
-        PlayerPrefs.SetInt("LoadTransition", 0);
-        StartCoroutine(DelayStartLevel());
+        if (SceneManager.GetActiveScene().name == "CutScene")
+        {
+            PlayerPrefs.SetInt("SpawnPosition", 0);
+            PlayerPrefs.SetInt("LoadTransition", 0);
+            StartCoroutine(DelayStartLevel());
+        }
     }
     IEnumerator DelayStartLevel()
     {
-        titleMenuTransition.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(transitionTime);
+        transitionObject.SetActive(true);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("LevelScene");
     }
     public void QuitGame()

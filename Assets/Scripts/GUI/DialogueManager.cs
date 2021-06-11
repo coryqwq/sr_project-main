@@ -196,7 +196,7 @@ public class DialogueManager : MonoBehaviour
             //gameObject.GetComponent<AudioSource>().Play();
             dialogueText.text += letter;
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.06f);
         }
 
         typing = false;
