@@ -630,7 +630,7 @@ MonoBehaviour:
   flag: 0
   flag1: 0
   continueButton: {fileID: 1736931439839454958}
-  sceneTransition: {fileID: 0}
+  cameraCutscene0: 0
 --- !u!1 &1736931440454565841
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7921569}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

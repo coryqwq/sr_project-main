@@ -7,6 +7,10 @@ public class CameraController : MonoBehaviour
     public Vector3 cameraOffset = Vector3.zero;
     public Vector3 referencePos = Vector3.zero;
     public bool startFollow = false;
+
+    public float elapsedTime = 0f;
+    public float duration = 3f;
+
     private void OnTriggerEnter(Collider other)
     {
         //set reference position to player's position at the instance trigger enters wall collider

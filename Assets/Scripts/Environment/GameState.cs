@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
     public GameObject player;
     public Transform cameraCompound;
     public Transform cameraFollowTrigger;
-
+    public GameObject dialogueCompound;
     public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f, 3.88f, 10.31f};
     public string[] levelTitles = new string[] { "Heart of the Forest", "Forest Meadow", "Azure Lake",
                                                 "Twilit Forest", "Near the Floral Flute", "Grove of the Spirit Tree",
@@ -19,6 +19,11 @@ public class GameState : MonoBehaviour
     public TextMeshProUGUI levelTitleText;
     private void Start()
     {
+        if (!whiteScreen.activeInHierarchy)
+        {
+            player.GetComponent<PlayerController>().enableInput = true;
+        }
+
         int i = SceneManager.GetActiveScene().buildIndex;
 
         //set title level
@@ -63,6 +68,12 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-
+        if (whiteScreen.activeInHierarchy 
+            && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 
+            && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
+        {
+            whiteScreen.SetActive(false);
+            dialogueCompound.SetActive(true);
+        }
     }
 }

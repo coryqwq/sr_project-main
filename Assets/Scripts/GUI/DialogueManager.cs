@@ -7,6 +7,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject player;
+    public GameObject hud;
     public GameObject dialogueObject;
 
     DialogueTrigger dialogueTriggerScript;
@@ -33,8 +34,14 @@ public class DialogueManager : MonoBehaviour
 
     public Button continueButton;
 
-    public GameObject sceneTransition;
-
+    private void Start()
+    {
+        if (player != null)
+        {
+            player.GetComponent<PlayerController>().enableInput = false;
+            hud.SetActive(false);
+        }
+    }
     private void Update()
     {
         if (dialogueStart == true && flag1 == false)
@@ -42,10 +49,7 @@ public class DialogueManager : MonoBehaviour
             continueButton.gameObject.SetActive(true);
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(continueButton.gameObject);
 
-            if (player != null)
-            {
-                player.GetComponent<PlayerController>().enabled = false;
-            }
+
 
             flag1 = true;
         }
@@ -216,7 +220,8 @@ public class DialogueManager : MonoBehaviour
 
         if (player != null)
         {
-            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<PlayerController>().enableInput = true;
+            hud.SetActive(true);
         }
     }
 }

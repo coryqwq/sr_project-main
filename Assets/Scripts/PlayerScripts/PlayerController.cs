@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     public PhysicMaterial frictionless;
 
     public bool jumpAnim = false;
+
+    public bool enableInput = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,51 +53,53 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (EnablePlayerMovement())
+        if (enableInput)
         {
-            //slow movement speed of player in air vs on ground
-            PlayerMovement();
-        }
-        if (input.x == 0)
-        {
-            GetComponent<CapsuleCollider>().material = friction;
-        }
-        else
-        {
-            GetComponent<CapsuleCollider>().material = frictionless;
-        }
-        //transition to player stanby animation if not moving and on ground
-        //transition to player move animation if moving and on ground
-        PlayerMovementAnimation();
-
-        //flip player sprite when moving left/right
-        PlayerFlipSprite();
-
-        //player double jump, reset if on ground
-        PlayerDoubleJump();
-
-        //player dash, can dash once after elasped time is greater than the dash duration
-        //player movement speed increases indefinitely after dash, but resets to default if horizontal direction changes
-        PlayerDash();
-
-        //reset attack animation parameters if player is on standby, move, or jump end animations
-        ResetAttackParameters();
-
-        //player attack sequence
-        PlayerAttack();
-
-        //player wake
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
-        {
-            if (flag4 == false)
+            if (EnablePlayerMovement())
             {
-                anim.SetTrigger("Alive");
-                flag4 = true;
+                //slow movement speed of player in air vs on ground
+                PlayerMovement();
+            }
+            if (input.x == 0)
+            {
+                GetComponent<CapsuleCollider>().material = friction;
             }
             else
             {
-                anim.SetTrigger("Wake");
+                GetComponent<CapsuleCollider>().material = frictionless;
+            }
+            //transition to player stanby animation if not moving and on ground
+            //transition to player move animation if moving and on ground
+            PlayerMovementAnimation();
+
+            //flip player sprite when moving left/right
+            PlayerFlipSprite();
+
+            //player double jump, reset if on ground
+            PlayerDoubleJump();
+
+            //player dash, can dash once after elasped time is greater than the dash duration
+            //player movement speed increases indefinitely after dash, but resets to default if horizontal direction changes
+            PlayerDash();
+
+            //reset attack animation parameters if player is on standby, move, or jump end animations
+            ResetAttackParameters();
+
+            //player attack sequence
+            PlayerAttack();
+
+            //player wake
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
+            {
+                if (flag4 == false)
+                {
+                    anim.SetTrigger("Alive");
+                    flag4 = true;
+                }
+                else
+                {
+                    anim.SetTrigger("Wake");
+                }
             }
         }
     }
@@ -150,7 +154,7 @@ public class PlayerController : MonoBehaviour
         //flip player sprite when moving left/right
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
         {
-            if(transform.localScale.x < 0)
+            if (transform.localScale.x < 0)
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
@@ -191,8 +195,8 @@ public class PlayerController : MonoBehaviour
     {
         //player dash, can dash once after elasped time is greater than the dash duration
         //player movement speed increases indefinitely after dash, but resets to default if horizontal direction changes
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) 
-            && elapsedTime > dashDuration 
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            && elapsedTime > dashDuration
             && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead")
             && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
