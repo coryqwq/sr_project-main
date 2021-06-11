@@ -44,11 +44,15 @@ public class PlayerController : MonoBehaviour
     public bool jumpAnim = false;
 
     public bool enableInput = false;
+
+    public GameObject mainCamera;
+    CameraShake cameraShakeScript;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        cameraShakeScript = mainCamera.GetComponent<CameraShake>();
     }
 
     // Update is called once per frame
@@ -368,6 +372,10 @@ public class PlayerController : MonoBehaviour
         //set player is grounded to true, transition to end jump animation
         if (collision.gameObject.CompareTag("Ground"))
         {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
+            {
+                StartCoroutine(cameraShakeScript.Shake(0.2f, 0.5f));
+            }
             isGrounded = true;
             anim.SetBool("Jump", false);
             anim.ResetTrigger("JumpStart");
