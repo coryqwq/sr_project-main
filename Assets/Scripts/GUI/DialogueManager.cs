@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
     public GameObject hud;
     public GameObject dialogueObject;
-
+    public GameObject levelTitle;
     DialogueTrigger dialogueTriggerScript;
 
     public TextMeshProUGUI nameText;
@@ -222,6 +222,7 @@ public class DialogueManager : MonoBehaviour
         {
             player.GetComponent<PlayerController>().enableInput = true;
             hud.SetActive(true);
+            levelTitle.SetActive(true);
         }
     }
 }

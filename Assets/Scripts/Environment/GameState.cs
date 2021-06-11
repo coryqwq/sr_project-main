@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
 {
     public GameObject whiteScreen;
     public GameObject blackScreen;
+    public GameObject levelTitle;
     public Animator playerAnim;
     public GameObject player;
     public Transform cameraCompound;
@@ -19,15 +20,10 @@ public class GameState : MonoBehaviour
     public TextMeshProUGUI levelTitleText;
     private void Start()
     {
-        if (!whiteScreen.activeInHierarchy)
-        {
-            player.GetComponent<PlayerController>().enableInput = true;
-        }
-
         int i = SceneManager.GetActiveScene().buildIndex;
 
         //set title level
-        levelTitleText.text = levelTitles[i - 1];
+        levelTitleText.text = levelTitles[i - 2];
 
         //set player to spawn on right side of last stage when backtracking portal
         if (PlayerPrefs.GetInt("SpawnPosition", 0) == -1)
@@ -39,7 +35,7 @@ public class GameState : MonoBehaviour
             }
             else
             {
-                cameraCompound.position = new Vector3(xCamPos[i - 1], cameraCompound.position.y, cameraCompound.position.z);
+                cameraCompound.position = new Vector3(xCamPos[i - 2], cameraCompound.position.y, cameraCompound.position.z);
             }
             SetRightSide();
         }
@@ -49,6 +45,8 @@ public class GameState : MonoBehaviour
         {
             playerAnim.SetTrigger("IsNotAwake");
             whiteScreen.SetActive(true);
+            player.GetComponent<PlayerController>().enableInput = false;
+            levelTitle.SetActive(false);
         }
 
         //black opening transition screen, player in standby/move animation
@@ -72,6 +70,7 @@ public class GameState : MonoBehaviour
             && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 
             && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
         {
+            Debug.Log("err");
             whiteScreen.SetActive(false);
             dialogueCompound.SetActive(true);
         }

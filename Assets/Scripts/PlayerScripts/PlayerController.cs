@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Animator anim;
-
     private Rigidbody rb;
+    public GameObject ps;
+
     public bool isGrounded = true;
 
     public Vector3 input = Vector3.zero;
@@ -165,6 +166,7 @@ public class PlayerController : MonoBehaviour
             if (transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
             }
             direction = -1;
         }
@@ -214,12 +216,16 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(rb.velocity.x) < 0.1f && isGrounded)
         {
             speed = speedDefault;
+            ps.GetComponent<ParticleSystem>().startLifetime = 0f;
+
             anim.SetBool("Move", false);
             anim.SetBool("Standby", true);
         }
         //transition to player move animation if moving and on ground
         if (Mathf.Abs(rb.velocity.x) > 0.1f && isGrounded)
         {
+            ps.GetComponent<ParticleSystem>().startLifetime = Mathf.Abs(rb.velocity.x/20);
+
             anim.SetBool("Standby", false);
             anim.SetBool("Move", true);
         }
@@ -383,6 +389,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            ps.GetComponent<ParticleSystem>().startLifetime = 0;
+
             if (jumpAnim)
             {
                 anim.SetBool("Standby", false);

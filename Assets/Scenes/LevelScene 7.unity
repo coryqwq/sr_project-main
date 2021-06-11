@@ -552,8 +552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729edb9fbe2d6a540b0bb46494ea0211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleMenuTransition: {fileID: 0}
+  transitionObject: {fileID: 0}
   transition: {fileID: 2119325978}
+  transitionTime: 4
 --- !u!1001 &603655122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1179,8 +1180,7 @@ MonoBehaviour:
   player: {fileID: 73897626}
   cameraCompound: {fileID: 900608781}
   cameraFollowTrigger: {fileID: 1700682179}
-  flag0: 0
-  flag1: 0
+  dialogueCompound: {fileID: 0}
   xCamPos:
   - 0.02
   - 14.9
@@ -1315,7 +1315,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
 --- !u!114 &2119325975 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6487428770516661243, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1524953649205149601, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
   m_PrefabInstance: {fileID: 2119325974}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

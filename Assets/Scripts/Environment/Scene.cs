@@ -13,15 +13,21 @@ public class Scene : MonoBehaviour
         {
             PlayerPrefs.SetInt("SpawnPosition", 0);
             PlayerPrefs.SetInt("LoadTransition", 0);
-            StartCoroutine(DelayStartLevel());
+            StartCoroutine(DelayStartLevel(2));
         }
     }
-    IEnumerator DelayStartLevel()
+
+    public void StartTitleMenuTranstion()
+    {
+        StartCoroutine(DelayStartLevel(1));
+    }
+
+    IEnumerator DelayStartLevel(int i)
     {
         yield return new WaitForSeconds(transitionTime);
         transitionObject.SetActive(true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("LevelScene");
+        SceneManager.LoadScene(i);
     }
     public void QuitGame()
     {
