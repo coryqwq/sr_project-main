@@ -12,9 +12,6 @@ public class GameState : MonoBehaviour
     public Transform cameraCompound;
     public Transform cameraFollowTrigger;
 
-    public bool flag0 = false;
-    public bool flag1 = false;
-
     public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f, 3.88f, 10.31f};
     public string[] levelTitles = new string[] { "Heart of the Forest", "Forest Meadow", "Azure Lake",
                                                 "Twilit Forest", "Near the Floral Flute", "Grove of the Spirit Tree",
@@ -41,6 +38,20 @@ public class GameState : MonoBehaviour
             }
             SetRightSide();
         }
+
+        //white opening transition screen, player in dead animation
+        if (PlayerPrefs.GetInt("LoadTransition", 0) == 0)
+        {
+            playerAnim.SetTrigger("IsNotAwake");
+            whiteScreen.SetActive(true);
+        }
+
+        //black opening transition screen, player in standby/move animation
+        if (PlayerPrefs.GetInt("LoadTransition", 0) == 1)
+        {
+            playerAnim.SetTrigger("IsAwake");
+            blackScreen.SetActive(true);
+        }
     }
     void SetRightSide()
     {
@@ -52,20 +63,6 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        //white opening transition screen, player in dead animation
-        if (PlayerPrefs.GetInt("LoadTransition", 0) == 0 && !flag0)
-        {
-            playerAnim.SetTrigger("IsNotAwake");
-            whiteScreen.SetActive(true);
-            flag0 = true;
-        }
 
-        //black opening transition screen, player in standby/move animation
-        if (PlayerPrefs.GetInt("LoadTransition", 0) == 1 && !flag1)
-        {
-            playerAnim.SetTrigger("IsAwake");
-            blackScreen.SetActive(true);
-            flag1 = true;
-        }
     }
 }
