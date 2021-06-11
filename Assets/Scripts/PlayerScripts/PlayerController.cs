@@ -46,13 +46,13 @@ public class PlayerController : MonoBehaviour
     public bool enableInput = false;
 
     public GameObject mainCamera;
-    CameraShake cameraShakeScript;
+    CameraController cameraControllerScript;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        cameraShakeScript = mainCamera.GetComponent<CameraShake>();
+        cameraControllerScript = mainCamera.GetComponent<CameraController>();
     }
 
     // Update is called once per frame
@@ -374,7 +374,7 @@ public class PlayerController : MonoBehaviour
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
             {
-                StartCoroutine(cameraShakeScript.Shake(0.2f, 0.5f));
+                StartCoroutine(cameraControllerScript.Shake(0.01f, 0.03f));
             }
             isGrounded = true;
             anim.SetBool("Jump", false);
