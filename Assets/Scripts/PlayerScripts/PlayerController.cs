@@ -46,13 +46,13 @@ public class PlayerController : MonoBehaviour
     public bool enableInput = false;
 
     public GameObject mainCamera;
-    CameraController cameraControllerScript;
+    CameraFollowPlayer cameraFollowPlayerScript;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        cameraControllerScript = mainCamera.GetComponent<CameraController>();
+        cameraFollowPlayerScript = mainCamera.GetComponent<CameraFollowPlayer>();
     }
 
     // Update is called once per frame
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
         //transition to player move animation if moving and on ground
         if (Mathf.Abs(rb.velocity.x) > 0.1f && isGrounded)
         {
-            ps.GetComponent<ParticleSystem>().startLifetime = Mathf.Abs(rb.velocity.x/20);
+            ps.GetComponent<ParticleSystem>().startLifetime = Mathf.Abs(rb.velocity.x / 20);
 
             anim.SetBool("Standby", false);
             anim.SetBool("Move", true);
@@ -374,11 +374,13 @@ public class PlayerController : MonoBehaviour
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
             {
-                StartCoroutine(cameraControllerScript.Shake(0.01f, 0.03f));
+                StartCoroutine(cameraFollowPlayerScript.Shake(0.5f, 0.02f));
             }
+
             isGrounded = true;
             anim.SetBool("Jump", false);
             anim.ResetTrigger("JumpStart");
+
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -386,8 +388,10 @@ public class PlayerController : MonoBehaviour
         //set player is grounded to true, transition to end jump animation
         if (collision.gameObject.CompareTag("Ground"))
         {
+
             jumpAnim = false;
             anim.SetBool("DownAttack", false);
+
         }
     }
 
