@@ -528,11 +528,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  refractionStrength: 0.198
-  reflectionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  reflectionStrength: 0.108
-  waveSpeed: 1.25
-  dropInterval: 0.086
+  refractionStrength: 0.123
+  reflectionColor: {r: 0.019607844, g: 0.1137255, b: 0.47058827, a: 1}
+  reflectionStrength: 0.539
+  waveSpeed: 1
+  dropInterval: 0.078
   shader: {fileID: 4800000, guid: 162fe242d486f4dab90ed53db15b9c19, type: 3}
 --- !u!20 &519420031
 Camera:
