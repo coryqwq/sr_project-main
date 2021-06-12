@@ -28,7 +28,7 @@ public class GameState : MonoBehaviour
         //set player to spawn on right side of last stage when backtracking portal
         if (PlayerPrefs.GetInt("SpawnPosition", 0) == -1)
         {
-            if (i == 5)
+            if (i == 6)
             {
                 player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + 2.3676666f, player.transform.localPosition.z);
                 cameraCompound.position = new Vector3(15.48f, 0.3510833f, cameraCompound.position.z);

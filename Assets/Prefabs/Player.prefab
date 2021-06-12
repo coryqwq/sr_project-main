@@ -4967,7 +4967,7 @@ MonoBehaviour:
   doubleJump: 0
   fallMultiplier: 3
   jumpMultiplier: 2
-  dashForce: 10
+  dashForce: 14
   attackForce: 6.5
   dashDuration: 0.3
   elapsedTime: 0
@@ -4985,6 +4985,7 @@ MonoBehaviour:
   frictionless: {fileID: 13400000, guid: 5746a5faf20420542b245a9fce17e3f8, type: 2}
   jumpAnim: 0
   enableInput: 1
+  mainCamera: {fileID: 0}
 --- !u!65 &961670862706035089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5012,7 +5013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraOffset: {x: 0, y: 0, z: 0}
   referencePos: {x: 0, y: 0, z: 0}
-  startFollow: 0
+  startFollowX: 0
+  startFollowY: 1
   elapsedTime: 0
   duration: 3
 --- !u!114 &142362056153586346
@@ -5083,7 +5085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8207781457016858276}
   m_LocalRotation: {x: 0, y: 0, z: 0.8604309, w: 0.5095672}
-  m_LocalPosition: {x: -0.284, y: -0.095, z: 0}
+  m_LocalPosition: {x: 0.241, y: 0.359, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 961670862706035092}
@@ -5100,5 +5102,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.8, z: 2}
+  m_Size: {x: 0.2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: -4}

@@ -47,12 +47,14 @@ public class PlayerController : MonoBehaviour
 
     public GameObject mainCamera;
     CameraFollowPlayer cameraFollowPlayerScript;
+    RippleEffect rippleEffectScript;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cameraFollowPlayerScript = mainCamera.GetComponent<CameraFollowPlayer>();
+        rippleEffectScript = mainCamera.GetComponent<RippleEffect>();
     }
 
     // Update is called once per frame
@@ -357,6 +359,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity += new Vector3(direction, 0, 0) * dashForce;
             }
+            FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             elapsedTime = 0;
             dash = false;
         }
