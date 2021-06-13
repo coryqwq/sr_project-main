@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class EnemyController : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody rb;
     private SpriteRenderer sr;
+    PlayerStats playerStatsScript;
 
     public float speed = 1f;
 
@@ -35,11 +36,14 @@ public class EnemyController : MonoBehaviour
     public float duration = 1f;
 
     PlayerController playerControllerScript;
+
+    public ParticleSystem ps;
     // Start is called before the first frame update
     void Start()
     {
         Physics.IgnoreLayerCollision(0,7, true);
         playerControllerScript = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        playerStatsScript = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         sr = GetComponent<SpriteRenderer>();
@@ -122,6 +126,7 @@ public class EnemyController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             sr.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), elapsedTime / anim.GetCurrentAnimatorStateInfo(0).length);
+            ps.startColor = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), elapsedTime / anim.GetCurrentAnimatorStateInfo(0).length);
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
             {
                 GameObject.Destroy(gameObject);
@@ -168,10 +173,21 @@ public class EnemyController : MonoBehaviour
             hp--;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "SwordCollider")
+        {
+            playerStatsScript.mp += 10;
+            ps.startLifetime = 0.4f;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "SwordCollider")
         {
+            ps.startLifetime = 0.0f;
             anim.SetBool("hit", false);
         }
     }

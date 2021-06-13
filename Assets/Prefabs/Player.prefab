@@ -4823,6 +4823,7 @@ GameObject:
   - component: {fileID: 142362056153586346}
   - component: {fileID: 73897627}
   - component: {fileID: 7194064445559063570}
+  - component: {fileID: 401101042616641674}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4981,11 +4982,14 @@ MonoBehaviour:
   flag2: 0
   flag3: 0
   flag4: 0
+  flag5: 0
   friction: {fileID: 13400000, guid: 5b85602039d8856468990c24f5f4d4e8, type: 2}
   frictionless: {fileID: 13400000, guid: 5746a5faf20420542b245a9fce17e3f8, type: 2}
   jumpAnim: 0
   enableInput: 1
   mainCamera: {fileID: 0}
+  cameraShakeMagnitude: 0.02
+  cameraShakeDuration: 0.2
 --- !u!65 &961670862706035089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5060,6 +5064,18 @@ CapsuleCollider:
   m_Height: 0.79
   m_Direction: 1
   m_Center: {x: -0.04, y: 0.06, z: 0}
+--- !u!114 &401101042616641674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961670862706035096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edae9fd4d5f6a1428b33dbcfef50ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8207781457016858276
 GameObject:
   m_ObjectHideFlags: 0
