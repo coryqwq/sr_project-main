@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public bool flag2 = false;
     public bool flag3 = false;
     public bool flag4 = false;
+    public bool flag5 = false;
 
     public PhysicMaterial friction;
     public PhysicMaterial frictionless;
@@ -48,6 +49,10 @@ public class PlayerController : MonoBehaviour
     public GameObject mainCamera;
     CameraFollowPlayer cameraFollowPlayerScript;
     RippleEffect rippleEffectScript;
+
+    public float cameraShakeMagnitude = 0.02f;
+    public float cameraShakeDuration = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -262,6 +267,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart"))
         {
             anim.SetBool("DownAttack", false);
+            flag5 = false;
+
         }
 
         //player down attack
@@ -375,9 +382,10 @@ public class PlayerController : MonoBehaviour
         //set player is grounded to true, transition to end jump animation
         if (collision.gameObject.CompareTag("Ground"))
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack") && !flag5)
             {
-                StartCoroutine(cameraFollowPlayerScript.Shake(0.5f, 0.02f));
+                StartCoroutine(cameraFollowPlayerScript.Shake(cameraShakeDuration,cameraShakeMagnitude));
+                flag5 = true;
             }
 
             isGrounded = true;

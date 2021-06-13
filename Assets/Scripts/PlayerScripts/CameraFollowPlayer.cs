@@ -17,22 +17,30 @@ public class CameraFollowPlayer : MonoBehaviour
         Vector3 originalPos = transform.localPosition;
 
         float elasped = 0.0f;
-        cameraControllerScript.startFollowY = false;
+        //cameraControllerScript.startFollowY = false;
 
+        int iterationCount = 0;
         while (elasped < duration)
         {
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
+            Debug.Log("(x, y): " + x +", " + y);
+
             transform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
 
             elasped += Time.deltaTime;
+            Debug.Log("elasped time: " + elasped);
+
+            iterationCount++;
+
+            yield return null;
+
 
         }
-
-        cameraControllerScript.startFollowY = true;
-
-        yield return null;
+        //cameraControllerScript.startFollowY = true;
+        Debug.Log("magnitude: " + magnitude);
+        Debug.Log("iterations: " + iterationCount);
 
     }
 

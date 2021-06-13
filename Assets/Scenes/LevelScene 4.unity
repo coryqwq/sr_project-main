@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: sceneScript
       value: 
       objectReference: {fileID: 519420035}
+    - target: {fileID: 961670862706035090, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420028}
     - target: {fileID: 961670862706035092, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -312,6 +316,105 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 961670862706035092, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
   m_PrefabInstance: {fileID: 231814005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &301540743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
+      value: '...
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[1]
+      value: I wonder where all the forest spirts are in this field.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[2]
+      value: I don't see any here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 392724356}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 73897626}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: levelTitle
+      value: 
+      objectReference: {fileID: 1347863663}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_Name
+      value: DialogueCompound
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e7c93705130d0f41875646650903338, type: 3}
 --- !u!1 &319416144
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +541,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.74, y: 0.63, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &392724356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2282395231802320292, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &407372122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+  m_PrefabInstance: {fileID: 301540743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &459484661
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +929,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1524953649205149603, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6487428770986011268, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -911,7 +1028,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1524953649205149601, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
   m_PrefabInstance: {fileID: 653026931}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1347863663}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -1232,6 +1349,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1347863663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1524953649205149603, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+  m_PrefabInstance: {fileID: 653026931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1421683304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1328,6 +1450,10 @@ PrefabInstance:
       value: HUDCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2282395231651945063, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282395231802320292, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1739,12 +1865,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteScreen: {fileID: 653026935}
   blackScreen: {fileID: 653026934}
-  levelTitle: {fileID: 0}
+  levelTitle: {fileID: 1347863663}
   playerAnim: {fileID: 73897630}
   player: {fileID: 73897626}
   cameraCompound: {fileID: 812892678}
   cameraFollowTrigger: {fileID: 1700682179}
-  dialogueCompound: {fileID: 0}
+  dialogueCompound: {fileID: 407372122}
   xCamPos:
   - 0.02
   - 14.9

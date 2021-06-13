@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
         {
             player.GetComponent<PlayerController>().enableInput = false;
             hud.SetActive(false);
+            levelTitle.SetActive(false);
         }
     }
     private void Update()

@@ -17,23 +17,26 @@ public class DisablePlatform : MonoBehaviour
     }
     private void Update()
     {
-        elapsed += Time.deltaTime;
-        if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && Mathf.Abs(rb.velocity.x) < 0.1f && flag1)
+        if (platform[0] != null)
         {
-            DisablePlatforms();
-            duration = elapsed + 0.2f;
-            flag0 = true;
-            
-        }
-        if(elapsed > duration && flag0 && flag1)
-        {
-            EnablePlatforms();
-            flag0 = false;
+            elapsed += Time.deltaTime;
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && Mathf.Abs(rb.velocity.x) < 0.1f && flag1)
+            {
+                DisablePlatforms();
+                duration = elapsed + 0.2f;
+                flag0 = true;
+
+            }
+            if (elapsed > duration && flag0 && flag1)
+            {
+                EnablePlatforms();
+                flag0 = false;
+            }
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.CompareTag("PlatformTrigger"))
+        if (other.gameObject.CompareTag("PlatformTrigger"))
         {
             DisablePlatforms();
         }

@@ -189,6 +189,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1128148347}
     m_Modifications:
+    - target: {fileID: 73897627, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 142362056153586346, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
       propertyPath: sceneScript
       value: 
@@ -196,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 961670862706035088, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 519420028}
+      objectReference: {fileID: 0}
     - target: {fileID: 961670862706035088, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
       propertyPath: dialogueManager
       value: 
@@ -529,7 +533,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -571,7 +575,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 17.8, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 1128148347}
   m_RootOrder: 2
@@ -1031,6 +1035,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: hud
       value: 
@@ -1115,7 +1127,7 @@ PrefabInstance:
     - target: {fileID: 2282395231651945056, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 519420031}
+      objectReference: {fileID: 0}
     - target: {fileID: 2282395231651945056, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_RenderMode
       value: 0
@@ -1255,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6487428770379858182, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6487428770516661241, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
       propertyPath: m_IsActive
