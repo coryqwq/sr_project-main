@@ -9,6 +9,7 @@ TagManager:
   - PlatformTrigger
   - DirectionTrigger
   - Enemy
+  - MP
   layers:
   - Default
   - TransparentFX

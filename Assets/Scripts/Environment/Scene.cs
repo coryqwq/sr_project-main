@@ -13,6 +13,7 @@ public class Scene : MonoBehaviour
         {
             PlayerPrefs.SetInt("SpawnPosition", 0);
             PlayerPrefs.SetInt("LoadTransition", 0);
+            PlayerPrefs.SetInt("PlayerMP", 0);
             StartCoroutine(DelayStartLevel(2));
         }
     }

@@ -41,9 +41,8 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(0,7, true);
+        Physics.IgnoreLayerCollision(0, 7, true);
         playerControllerScript = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        playerStatsScript = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         sr = GetComponent<SpriteRenderer>();
@@ -137,16 +136,16 @@ public class EnemyController : MonoBehaviour
         if (elapsedTime < duration && flag2)
         {
             elapsedTime += Time.deltaTime;
-            sr.color = Color.Lerp(new Color(0,0,0,0), new Color(1,1,1,1), elapsedTime / duration);
+            sr.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(1, 1, 1, 1), elapsedTime / duration);
 
-            if (sr.color == new Color(1,1,1,1))
+            if (sr.color == new Color(1, 1, 1, 1))
             {
                 elapsedTime = 0;
                 flag2 = false;
             }
         }
 
-        
+
     }
 
     IEnumerator StartIdlePhase()
@@ -176,9 +175,12 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "SwordCollider")
+        if (other.gameObject.name == "SwordCollider")
         {
-            playerStatsScript.mp += 10;
+            if (PlayerPrefs.GetInt("PlayerMP") < 100)
+            {
+                PlayerPrefs.SetInt("PlayerMP", PlayerPrefs.GetInt("PlayerMP") + 10);
+            }
             ps.startLifetime = 0.4f;
         }
     }
