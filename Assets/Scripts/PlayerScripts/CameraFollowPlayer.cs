@@ -17,7 +17,7 @@ public class CameraFollowPlayer : MonoBehaviour
         Vector3 originalPos = transform.localPosition;
 
         float elasped = 0.0f;
-        //cameraControllerScript.startFollowY = false;
+        cameraControllerScript.startFollowY = false;
 
         int iterationCount = 0;
         while (elasped < duration)
@@ -38,7 +38,7 @@ public class CameraFollowPlayer : MonoBehaviour
 
 
         }
-        //cameraControllerScript.startFollowY = true;
+        cameraControllerScript.startFollowY = true;
         Debug.Log("magnitude: " + magnitude);
         Debug.Log("iterations: " + iterationCount);
 

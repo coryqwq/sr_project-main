@@ -7,7 +7,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject hud;
+    public Animator hud;
     public GameObject dialogueObject;
     public GameObject levelTitle;
     DialogueTrigger dialogueTriggerScript;
@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
         if (player != null)
         {
             player.GetComponent<PlayerController>().enableInput = false;
-            hud.SetActive(false);
+            hud.SetBool("enable", false);
             levelTitle.SetActive(false);
         }
     }
@@ -222,7 +222,7 @@ public class DialogueManager : MonoBehaviour
         if (player != null)
         {
             player.GetComponent<PlayerController>().enableInput = true;
-            hud.SetActive(true);
+            hud.SetBool("enable", true);
             levelTitle.SetActive(true);
         }
     }
