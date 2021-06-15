@@ -5076,6 +5076,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edae9fd4d5f6a1428b33dbcfef50ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
+  mp: 0
+  playerMPBar: {fileID: 0}
+  playerMPMax: 495.9
 --- !u!1 &8207781457016858276
 GameObject:
   m_ObjectHideFlags: 0

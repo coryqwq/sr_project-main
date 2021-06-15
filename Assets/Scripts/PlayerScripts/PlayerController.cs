@@ -100,6 +100,9 @@ public class PlayerController : MonoBehaviour
             //player attack sequence
             PlayerAttack();
 
+            //player special attack
+            PlayerLimit();
+
             //player wake
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Return))
             {
@@ -164,7 +167,9 @@ public class PlayerController : MonoBehaviour
     private void PlayerFlipSprite()
     {
         //flip player sprite when moving left/right
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead")
+            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerLimit"))
         {
             if (transform.localScale.x < 0)
             {
@@ -172,7 +177,9 @@ public class PlayerController : MonoBehaviour
             }
             direction = 1;
         }
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead")
+            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerLimit"))
         {
             if (transform.localScale.x > 0)
             {
@@ -245,7 +252,9 @@ public class PlayerController : MonoBehaviour
     private void PlayerAttack()
     {
         //player main attack sequence
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)) && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return))
+            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack")
+            && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerLimit"))
         {
             if (attackPhase == 0)
             {
@@ -275,6 +284,21 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded && (doubleJump || !dash) && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
         {
             anim.SetBool("DownAttack", true);
+        }
+    }
+
+    private void PlayerLimit()
+    {
+        if (PlayerPrefs.GetInt("PlayerMP") == 100 && (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1)))
+        {
+            anim.SetTrigger("Limit");
+            FindObjectOfType<RippleEffect>().refractionStrength = 0.75f;
+            FindObjectOfType<RippleEffect>().reflectionStrength = 0.75f;
+            FindObjectOfType<RippleEffect>().waveSpeed = 2f;
+
+            FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+
+            PlayerPrefs.SetInt("PlayerMP", 0);
         }
     }
 
@@ -366,6 +390,9 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity += new Vector3(direction, 0, 0) * dashForce;
             }
+            FindObjectOfType<RippleEffect>().refractionStrength = 0.123f;
+            FindObjectOfType<RippleEffect>().reflectionStrength = 0.539f;
+            FindObjectOfType<RippleEffect>().waveSpeed = 1f;
             FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             elapsedTime = 0;
             dash = false;
@@ -377,6 +404,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StartCameraShake()
+    {
+        StartCoroutine(cameraFollowPlayerScript.Shake(cameraShakeDuration, cameraShakeMagnitude));
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         //set player is grounded to true, transition to end jump animation
@@ -384,7 +416,7 @@ public class PlayerController : MonoBehaviour
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack") && !flag5)
             {
-                StartCoroutine(cameraFollowPlayerScript.Shake(cameraShakeDuration,cameraShakeMagnitude));
+                StartCameraShake();
                 flag5 = true;
             }
 
