@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: hud
       value: 
-      objectReference: {fileID: 392724356}
+      objectReference: {fileID: 392724357}
     - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: player
       value: 
@@ -541,30 +541,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.74, y: 0.63, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &392724356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2282395231802320292, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+--- !u!95 &392724357 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 392724357, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
   m_PrefabInstance: {fileID: 1421683304}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &392724357
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392724356}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b20442a16ac147408dd9ec3647ed3fc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &407372122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
@@ -1040,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreenCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6487428770986011269, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
 --- !u!114 &653026932 stripped
@@ -1468,14 +1453,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2282395231651945063, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282395231802320292, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
 --- !u!1 &1595798511
@@ -1565,7 +1542,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.29, y: 1, z: 2}
+  m_Size: {x: 26.29, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1690312749
 GameObject:
@@ -1909,6 +1886,7 @@ MonoBehaviour:
   - Reaper's Heart
   - Temple of Rebirth
   levelTitleText: {fileID: 653026932}
+  cutscene1: {fileID: 0}
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0

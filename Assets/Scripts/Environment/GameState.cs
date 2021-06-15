@@ -18,6 +18,7 @@ public class GameState : MonoBehaviour
                                                 "Twilit Forest", "Near the Floral Flute", "Grove of the Spirit Tree",
                                                 "Deep Fairy Forest", "Fungos Forest", "Reaper's Heart", "Temple of Rebirth"};
     public TextMeshProUGUI levelTitleText;
+    public GameObject cutscene1;
     private void Start()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
@@ -39,7 +40,6 @@ public class GameState : MonoBehaviour
             }
             SetRightSide();
         }
-
         //white opening transition screen, player in dead animation
         if (PlayerPrefs.GetInt("LoadTransition", 0) == 0)
         {
@@ -66,13 +66,25 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        if (whiteScreen.activeInHierarchy 
+        if (SceneManager.GetActiveScene().name == "LevelScene"
             && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 
             && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
         {
-            Debug.Log("err");
             whiteScreen.SetActive(false);
             dialogueCompound.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene9" && PlayerPrefs.GetInt("cutscene1") == 0)
+        {   
+            if(cutscene1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+            && !cutscene1.GetComponent<Animator>().IsInTransition(0))
+            {
+                cutscene1.SetActive(false);
+                dialogueCompound.SetActive(true);
+
+            }
+
+
         }
     }
 }

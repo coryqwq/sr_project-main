@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
     PlayerController playerControllerScript;
 
     public ParticleSystem ps;
+    public float particleLifetime = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,7 @@ public class EnemyController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.color = new Color(0, 0, 0, 0);
         sr.sortingOrder = Random.Range(0, 2);
+
         GetNextValues();
     }
 
@@ -120,12 +122,14 @@ public class EnemyController : MonoBehaviour
             anim.SetTrigger("death");
             flag1 = false;
         }
+
         //enemy fade out
         if (anim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             elapsedTime += Time.deltaTime;
             sr.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), elapsedTime / anim.GetCurrentAnimatorStateInfo(0).length);
-            ps.startColor = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), elapsedTime / anim.GetCurrentAnimatorStateInfo(0).length);
+            var main = ps.main;
+            main.startColor = Color.Lerp(new Color(1f, 1f, 1f, 1f), new Color(1f, 1f, 1f, 0f), elapsedTime / anim.GetCurrentAnimatorStateInfo(0).length);
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
             {
                 GameObject.Destroy(gameObject);
@@ -181,7 +185,8 @@ public class EnemyController : MonoBehaviour
             {
                 PlayerPrefs.SetInt("PlayerMP", PlayerPrefs.GetInt("PlayerMP") + 10);
             }
-            ps.startLifetime = 0.4f;
+            var main = ps.main;
+            main.startLifetime = particleLifetime;
         }
     }
 
@@ -189,7 +194,8 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.name == "SwordCollider")
         {
-            ps.startLifetime = 0.0f;
+            var main = ps.main;
+            main.startLifetime = 0.0f;
             anim.SetBool("hit", false);
         }
     }
