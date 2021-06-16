@@ -68,6 +68,7 @@ public class GameState : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "LevelScene 9" && PlayerPrefs.GetInt("cutscene1") == 1)
         {
+            player.GetComponent<PlayerController>().enableInput = false;
             levelTitle.SetActive(false);
             hud.SetActive(false);
             StartCoroutine(DelayEnablePlayer(5));
