@@ -336,6 +336,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1887,6 +1891,7 @@ MonoBehaviour:
   - Temple of Rebirth
   levelTitleText: {fileID: 653026932}
   cutscene1: {fileID: 0}
+  hud: {fileID: 0}
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0

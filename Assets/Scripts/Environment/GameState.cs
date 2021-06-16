@@ -19,6 +19,8 @@ public class GameState : MonoBehaviour
                                                 "Deep Fairy Forest", "Fungos Forest", "Reaper's Heart", "Temple of Rebirth"};
     public TextMeshProUGUI levelTitleText;
     public GameObject cutscene1;
+    public GameObject cutscene2;
+    public GameObject hud;
     private void Start()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
@@ -44,6 +46,7 @@ public class GameState : MonoBehaviour
         if (PlayerPrefs.GetInt("LoadTransition", 0) == 0)
         {
             playerAnim.SetTrigger("IsNotAwake");
+            hud.SetActive(false);
             whiteScreen.SetActive(true);
             player.GetComponent<PlayerController>().enableInput = false;
             levelTitle.SetActive(false);
@@ -55,6 +58,21 @@ public class GameState : MonoBehaviour
             playerAnim.SetTrigger("IsAwake");
             blackScreen.SetActive(true);
         }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 9" && PlayerPrefs.GetInt("cutscene1") == 0)
+        {
+            blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
+            levelTitle.SetActive(false);
+            hud.SetActive(false);
+            cutscene1.SetActive(true);
+        }
+        else if (SceneManager.GetActiveScene().name == "LevelScene 9" && PlayerPrefs.GetInt("cutscene1") == 1)
+        {
+            levelTitle.SetActive(false);
+            hud.SetActive(false);
+            StartCoroutine(DelayEnablePlayer(5));
+        }
+
     }
     void SetRightSide()
     {
@@ -71,20 +89,36 @@ public class GameState : MonoBehaviour
             && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
         {
             whiteScreen.SetActive(false);
+            hud.SetActive(true);
             dialogueCompound.SetActive(true);
+
         }
 
-        if (SceneManager.GetActiveScene().name == "LevelScene9" && PlayerPrefs.GetInt("cutscene1") == 0)
-        {   
-            if(cutscene1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+        if (SceneManager.GetActiveScene().name == "LevelScene 9" && PlayerPrefs.GetInt("cutscene1") == 0)
+        {
+            if (cutscene1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
             && !cutscene1.GetComponent<Animator>().IsInTransition(0))
             {
                 cutscene1.SetActive(false);
+                hud.SetActive(true);
                 dialogueCompound.SetActive(true);
-
             }
-
-
         }
+    }
+
+    public IEnumerator DelayEnablePlayer(int delay)
+    {
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
+        cutscene2.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        cutscene2.SetActive(false);
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
+        player.GetComponent<PlayerController>().enableInput = true;
+        hud.SetActive(true);
+        hud.GetComponent<Animator>().SetBool("enable", true);
+        levelTitle.SetActive(true);
+        PlayerPrefs.SetInt("cutscene1", 1);
     }
 }

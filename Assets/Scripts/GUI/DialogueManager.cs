@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject player;
@@ -208,7 +209,20 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-
+        if (SceneManager.GetActiveScene().name != "LevelScene 9")
+        {
+            if (player != null)
+            {
+                player.GetComponent<PlayerController>().enableInput = true;
+                hud.GetComponent<Animator>().SetBool("enable", true);
+                levelTitle.SetActive(true);
+            }
+        }
+        else
+        {
+            
+            StartCoroutine(FindObjectOfType<GameState>().DelayEnablePlayer(5));
+        }
         continueButton.gameObject.SetActive(false);
 
         dialogueStart = false;
@@ -218,12 +232,7 @@ public class DialogueManager : MonoBehaviour
         anim[0].SetBool("IsOpen", false);
         anim[1].SetBool("IsOpen", false);
         anim[animIndex].SetBool("IsSpeaking", false);
-
-        if (player != null)
-        {
-            player.GetComponent<PlayerController>().enableInput = true;
-            hud.SetBool("enable", true);
-            levelTitle.SetActive(true);
-        }
     }
+
+
 }
