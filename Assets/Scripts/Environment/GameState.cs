@@ -13,7 +13,7 @@ public class GameState : MonoBehaviour
     public Transform cameraCompound;
     public Transform cameraFollowTrigger;
     public GameObject dialogueCompound;
-    public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f, 3.88f, 10.31f};
+    public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f, 3.88f, 10.31f };
     public string[] levelTitles = new string[] { "Heart of the Forest", "Forest Meadow", "Azure Lake",
                                                 "Twilit Forest", "Near the Floral Flute", "Grove of the Spirit Tree",
                                                 "Deep Fairy Forest", "Fungos Forest", "Reaper's Heart", "Temple of Rebirth"};
@@ -85,8 +85,18 @@ public class GameState : MonoBehaviour
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "LevelScene"
-            && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 
+            && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
             && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
+        {
+            whiteScreen.SetActive(false);
+            hud.SetActive(true);
+            dialogueCompound.SetActive(true);
+
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 8"
+        && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+        && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
         {
             whiteScreen.SetActive(false);
             hud.SetActive(true);
@@ -115,6 +125,7 @@ public class GameState : MonoBehaviour
         yield return new WaitForSeconds(1);
         cutscene2.SetActive(false);
         blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1);
         player.GetComponent<PlayerController>().enableInput = true;
         hud.SetActive(true);
         hud.GetComponent<Animator>().SetBool("enable", true);

@@ -245,7 +245,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1524953649205149601, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
   m_PrefabInstance: {fileID: 80106263}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1867106722}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -743,6 +743,16 @@ MonoBehaviour:
   transitionObject: {fileID: 0}
   transition: {fileID: 80106264}
   transitionTime: 4
+--- !u!1 &834710412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2282395231802320292, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &834710414 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 392724357, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &900608780
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +967,128 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+--- !u!1 &1495447559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+  m_PrefabInstance: {fileID: 1530241351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1530241351
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[3]
+      value: (She glances to an inscription carved into her right forearm)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[4]
+      value: '(It reads: "A-L-I-C-E")'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[5]
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[6]
+      value: Alice?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[7]
+      value: (Faint memories of Alices' previous life fade into conscious)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[8]
+      value: I'm Alice... Alice the Doll.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[9]
+      value: The voice in my head urges me to seek redemption against the Reaper.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[10]
+      value: I must go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 834710414}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 73897626}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: levelTitle
+      value: 
+      objectReference: {fileID: 1867106722}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_Name
+      value: DialogueCompound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e7c93705130d0f41875646650903338, type: 3}
 --- !u!1 &1663452021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1243,11 @@ Transform:
   m_Father: {fileID: 900608781}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1867106722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1524953649205149603, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+  m_PrefabInstance: {fileID: 80106263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2013648117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,12 +1323,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteScreen: {fileID: 80106267}
   blackScreen: {fileID: 80106266}
-  levelTitle: {fileID: 0}
+  levelTitle: {fileID: 1867106722}
   playerAnim: {fileID: 73897630}
   player: {fileID: 73897626}
   cameraCompound: {fileID: 900608781}
   cameraFollowTrigger: {fileID: 1700682179}
-  dialogueCompound: {fileID: 0}
+  dialogueCompound: {fileID: 1495447559}
   xCamPos:
   - 0.02
   - 14.9
@@ -1211,6 +1348,9 @@ MonoBehaviour:
   - Reaper's Heart
   - Temple of Rebirth
   levelTitleText: {fileID: 80106265}
+  cutscene1: {fileID: 0}
+  cutscene2: {fileID: 0}
+  hud: {fileID: 834710412}
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0
