@@ -183,7 +183,7 @@ public class EnemyController : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("PlayerMP") < 100)
             {
-                PlayerPrefs.SetInt("PlayerMP", PlayerPrefs.GetInt("PlayerMP") + 10);
+                PlayerPrefs.SetInt("PlayerMP", PlayerPrefs.GetInt("PlayerMP") + 5);
             }
             var main = ps.main;
             main.startLifetime = particleLifetime;

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4461222113248102941}
   - component: {fileID: 4461222113248102914}
   - component: {fileID: 8977928323110855148}
+  - component: {fileID: 3715051884203621108}
   m_Layer: 0
   m_Name: attack0
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,3 +117,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.46, y: 12, z: 0.2}
   m_Center: {x: -0.07, y: 0, z: 1}
+--- !u!114 &3715051884203621108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461222113248102912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb1098229170264eb06105836cbf203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

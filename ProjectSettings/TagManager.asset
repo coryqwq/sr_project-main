@@ -10,6 +10,8 @@ TagManager:
   - DirectionTrigger
   - Enemy
   - MP
+  - EnemyAttack
+  - HP
   layers:
   - Default
   - TransparentFX

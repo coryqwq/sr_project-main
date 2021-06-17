@@ -21,6 +21,10 @@ public class GameState : MonoBehaviour
     public GameObject cutscene1;
     public GameObject cutscene2;
     public GameObject hud;
+
+    public GameObject deadDialogueCompound;
+
+    public Scene sceneScript;
     private void Start()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
@@ -115,6 +119,11 @@ public class GameState : MonoBehaviour
                 dialogueCompound.SetActive(true);
             }
         }
+
+        if (!player.GetComponent<PlayerController>().alive)
+        {
+            StartCoroutine(GameOverSequence(2));
+        }
     }
 
     public IEnumerator DelayEnablePlayer(int delay)
@@ -131,6 +140,16 @@ public class GameState : MonoBehaviour
         hud.SetActive(true);
         hud.GetComponent<Animator>().SetBool("enable", true);
         levelTitle.SetActive(true);
+
         PlayerPrefs.SetInt("cutscene1", 1);
+    }
+
+    public IEnumerator GameOverSequence(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(4);
+        deadDialogueCompound.SetActive(true);
+        sceneScript.StartRespawnTransition();
     }
 }

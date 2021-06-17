@@ -23,11 +23,19 @@ public class Scene : MonoBehaviour
         StartCoroutine(DelayStartLevel(1));
     }
 
+    public void StartRespawnTransition()
+    {
+        StartCoroutine(DelayStartLevel(10));
+    }
+
+
     IEnumerator DelayStartLevel(int i)
     {
         yield return new WaitForSeconds(transitionTime);
         transitionObject.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
+        PlayerPrefs.SetInt("LoadTransition", 0);
+
         SceneManager.LoadScene(i);
     }
     public void QuitGame()

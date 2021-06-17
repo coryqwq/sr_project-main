@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public bool flag3 = false;
     public bool flag4 = false;
     public bool flag5 = false;
-
+    public bool flag6 = false;
     public PhysicMaterial friction;
     public PhysicMaterial frictionless;
 
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public float cameraShakeMagnitude = 0.02f;
     public float cameraShakeDuration = 0.2f;
 
+    public bool alive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +117,19 @@ public class PlayerController : MonoBehaviour
                     anim.SetTrigger("Wake");
                 }
             }
+        }
+
+        if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
+        {
+            rb.velocity = Vector3.zero;
+            enableInput = false;
+            anim.SetTrigger("Dying");
+            alive = false;
+            flag6 = true;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDying"))
+        {
+            anim.ResetTrigger("Dying");
         }
     }
 
@@ -456,7 +470,4 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
-
-
 }
