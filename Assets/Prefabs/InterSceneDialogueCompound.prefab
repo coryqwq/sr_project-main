@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 282358331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1}
   m_Children: []
   m_Father: {fileID: 6077254657973574951}
   m_RootOrder: 3
@@ -139,7 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  hud: {fileID: 0}
   dialogueObject: {fileID: 6077254657659395740}
+  levelTitle: {fileID: 0}
   nameText: {fileID: 6077254658983887440}
   dialogueText: {fileID: 6077254659164376320}
   typing: 0
@@ -157,7 +159,6 @@ MonoBehaviour:
   flag: 0
   flag1: 0
   continueButton: {fileID: 6077254658009748513}
-  sceneTransition: {fileID: 0}
 --- !u!1 &6077254657659395740
 GameObject:
   m_ObjectHideFlags: 0

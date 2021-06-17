@@ -641,7 +641,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10321,4 +10321,5 @@ MonoBehaviour:
   elapsedTime: 0
   duration: 1
   ps: {fileID: 1349308457}
+  ps2: {fileID: 563172508}
   particleLifetime: 0.2

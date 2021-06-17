@@ -1052,6 +1052,9 @@ MonoBehaviour:
   cutscene1: {fileID: 0}
   cutscene2: {fileID: 0}
   hud: {fileID: 1030604882}
+  deadDialogueCompound: {fileID: 0}
+  sceneScript: {fileID: 0}
+  flag: 0
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0
@@ -1194,6 +1197,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1174919727, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.38431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650657879, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2282395231651945059, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1413,7 +1424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6487428770986011269, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}

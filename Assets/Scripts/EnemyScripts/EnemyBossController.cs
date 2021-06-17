@@ -39,7 +39,8 @@ public class EnemyBossController : MonoBehaviour
         if (currentHP > 0 
             && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 
             && !GetComponent<Animator>().IsInTransition(0)
-            && GameObject.Find("LevelTitleText") != null)
+            && FindObjectOfType<PlayerController>().alive
+            && GameObject.Find("LevelTitleText"))
         {
             int randomIndex = Random.Range(0, 3);
             anim.SetTrigger("attack" + randomIndex);
@@ -65,6 +66,10 @@ public class EnemyBossController : MonoBehaviour
             ps.SetActive(false);
             elapsedTime += Time.deltaTime;
             GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), elapsedTime / duration);
+        }
+        if (!FindObjectOfType<PlayerController>().alive)
+        {
+            CancelInvoke();
         }
 
         if (currentHP <= maxHP)

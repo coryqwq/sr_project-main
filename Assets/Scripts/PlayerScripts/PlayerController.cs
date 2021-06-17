@@ -121,8 +121,8 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
         {
-            rb.velocity = Vector3.zero;
             enableInput = false;
+            rb.velocity = Vector3.zero;
             anim.SetTrigger("Dying");
             alive = false;
             flag6 = true;

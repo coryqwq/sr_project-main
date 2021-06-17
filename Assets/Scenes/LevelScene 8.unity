@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreenCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6487428770986011269, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
 --- !u!95 &80106264 stripped
@@ -1394,12 +1398,15 @@ MonoBehaviour:
   - Grove of the Spirit Tree
   - Deep Fairy Forest
   - Fungos Forest
-  - Reaper's Heart
   - Temple of Rebirth
+  - Reaper's Throne
   levelTitleText: {fileID: 80106265}
   cutscene1: {fileID: 0}
   cutscene2: {fileID: 0}
   hud: {fileID: 834710412}
+  deadDialogueCompound: {fileID: 0}
+  sceneScript: {fileID: 0}
+  flag: 0
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0

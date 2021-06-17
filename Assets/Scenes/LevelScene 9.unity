@@ -1799,13 +1799,14 @@ MonoBehaviour:
   - Deep Fairy Forest
   - Fungos Forest
   - Reaper's Heart
-  - Temple of Rebirth
+  - Reaper's Throne
   levelTitleText: {fileID: 80106265}
   cutscene1: {fileID: 1594928061}
   cutscene2: {fileID: 1880375021}
   hud: {fileID: 1421683306}
   deadDialogueCompound: {fileID: 1546571170}
   sceneScript: {fileID: 519420035}
+  flag: 0
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0
@@ -1847,6 +1848,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6077254657509723386, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 1421683305}
+    - target: {fileID: 6077254657509723386, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 73897626}
+    - target: {fileID: 6077254657509723386, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: levelTitle
+      value: 
+      objectReference: {fileID: 71245388}
     - target: {fileID: 6077254657659395742, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
       value: You are about to be reborn.
@@ -1858,6 +1871,18 @@ PrefabInstance:
     - target: {fileID: 6077254657973574948, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077254657990092724, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077254657990092726, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077254658009748543, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6077254658889334172, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_Name

@@ -16,7 +16,7 @@ public class GameState : MonoBehaviour
     public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f, 3.88f, 10.31f };
     public string[] levelTitles = new string[] { "Heart of the Forest", "Forest Meadow", "Azure Lake",
                                                 "Twilit Forest", "Near the Floral Flute", "Grove of the Spirit Tree",
-                                                "Deep Fairy Forest", "Fungos Forest", "Reaper's Heart", "Temple of Rebirth"};
+                                                "Deep Fairy Forest", "Fungos Forest", "Temple of Rebirth", "Reaper's Throne"};
     public TextMeshProUGUI levelTitleText;
     public GameObject cutscene1;
     public GameObject cutscene2;
@@ -25,6 +25,8 @@ public class GameState : MonoBehaviour
     public GameObject deadDialogueCompound;
 
     public Scene sceneScript;
+
+    public bool flag = false;
     private void Start()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
@@ -89,25 +91,29 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "LevelScene"
+        if (whiteScreen.activeInHierarchy)
+        {
+            if (SceneManager.GetActiveScene().name == "LevelScene"
+                       && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+                       && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
+            {
+                whiteScreen.SetActive(false);
+                hud.SetActive(true);
+                dialogueCompound.SetActive(true);
+
+            }
+
+            if (SceneManager.GetActiveScene().name == "LevelScene 8"
             && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
             && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
-        {
-            whiteScreen.SetActive(false);
-            hud.SetActive(true);
-            dialogueCompound.SetActive(true);
+            {
+                whiteScreen.SetActive(false);
+                hud.SetActive(true);
+                dialogueCompound.SetActive(true);
 
+            }
         }
 
-        if (SceneManager.GetActiveScene().name == "LevelScene 8"
-        && whiteScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
-        && !whiteScreen.GetComponent<Animator>().IsInTransition(0))
-        {
-            whiteScreen.SetActive(false);
-            hud.SetActive(true);
-            dialogueCompound.SetActive(true);
-
-        }
 
         if (SceneManager.GetActiveScene().name == "LevelScene 9" && PlayerPrefs.GetInt("cutscene1") == 0)
         {
@@ -120,9 +126,10 @@ public class GameState : MonoBehaviour
             }
         }
 
-        if (!player.GetComponent<PlayerController>().alive)
+        if (!player.GetComponent<PlayerController>().alive && !flag)
         {
             StartCoroutine(GameOverSequence(2));
+            flag = true;
         }
     }
 

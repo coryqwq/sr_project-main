@@ -1782,6 +1782,12 @@ MonoBehaviour:
   - Reaper's Heart
   - Temple of Rebirth
   levelTitleText: {fileID: 1290464581}
+  cutscene1: {fileID: 0}
+  cutscene2: {fileID: 0}
+  hud: {fileID: 0}
+  deadDialogueCompound: {fileID: 0}
+  sceneScript: {fileID: 0}
+  flag: 0
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0

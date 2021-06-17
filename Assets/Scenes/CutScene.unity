@@ -577,10 +577,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 282358331, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077254657509723386, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: sceneTransition
       value: 
       objectReference: {fileID: 454165695}
+    - target: {fileID: 6077254657659395742, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
+      value: You are about to be reborn.
+      objectReference: {fileID: 0}
     - target: {fileID: 6077254657973574948, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_Camera
       value: 

@@ -218,7 +218,7 @@ public class DialogueManager : MonoBehaviour
                 levelTitle.SetActive(true);
             }
         }
-        else
+        else if (player.GetComponent<PlayerController>().alive)
         {
             
             StartCoroutine(FindObjectOfType<GameState>().DelayEnablePlayer(5));
