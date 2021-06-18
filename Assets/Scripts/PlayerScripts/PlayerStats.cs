@@ -13,16 +13,17 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         playerMPBar = GameObject.FindWithTag("MP").GetComponent<RectTransform>();
         playerHPBar = GameObject.FindWithTag("HP").GetComponent<RectTransform>();
-
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        Debug.Log(PlayerPrefs.GetInt("PlayerMP"));
+
         if (PlayerPrefs.GetInt("PlayerMP") <= 100)
         {
             float currentMP = PlayerPrefs.GetInt("PlayerMP");
@@ -33,6 +34,8 @@ public class PlayerStats : MonoBehaviour
             float currentHP = PlayerPrefs.GetInt("PlayerHP");
             playerHPBar.sizeDelta = new Vector2((currentHP * (playerHPMax / 100)), playerHPBar.sizeDelta.y);
         }
+
+
     }
 
     private void OnTriggerStay(Collider other)

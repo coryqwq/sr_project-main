@@ -202,27 +202,31 @@ public class DialogueManager : MonoBehaviour
             //gameObject.GetComponent<AudioSource>().Play();
             dialogueText.text += letter;
 
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.06f);
         }
 
         typing = false;
     }
     void EndDialogue()
     {
-        if (SceneManager.GetActiveScene().name != "LevelScene 9")
+        if (SceneManager.GetActiveScene().name != "LevelScene 10")
         {
-            if (player != null)
+            if (SceneManager.GetActiveScene().name != "LevelScene 9")
             {
-                player.GetComponent<PlayerController>().enableInput = true;
-                hud.GetComponent<Animator>().SetBool("enable", true);
-                levelTitle.SetActive(true);
+                if (player != null)
+                {
+                    player.GetComponent<PlayerController>().enableInput = true;
+                    hud.GetComponent<Animator>().SetBool("enable", true);
+                    levelTitle.SetActive(true);
+                }
+            }
+            else if (FindObjectOfType<EnemyBossController>().alive)
+            {
+
+                StartCoroutine(FindObjectOfType<GameState>().DelayEnablePlayer(5));
             }
         }
-        else if (FindObjectOfType<EnemyBossController>().alive)
-        {
-            
-            StartCoroutine(FindObjectOfType<GameState>().DelayEnablePlayer(5));
-        }
+
         continueButton.gameObject.SetActive(false);
 
         dialogueStart = false;
@@ -233,21 +237,15 @@ public class DialogueManager : MonoBehaviour
         anim[1].SetBool("IsOpen", false);
         anim[animIndex].SetBool("IsSpeaking", false);
 
-        if(PlayerPrefs.GetInt("End") == 1)
+        if (PlayerPrefs.GetInt("End") == 1)
         {
-            StartCoroutine(DelayLoadScene()); 
+            StartCoroutine(DelayLoadScene());
         }
 
         if (PlayerPrefs.GetInt("End") == 2)
         {
-            PlayerPrefs.SetInt("cutscene2", 0);
-        }
-
-        if (PlayerPrefs.GetInt("End") == 3)
-        {
             PlayerPrefs.SetInt("cutscene2", 1);
         }
-
     }
 
     IEnumerator DelayLoadScene()

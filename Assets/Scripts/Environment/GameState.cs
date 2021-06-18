@@ -45,10 +45,10 @@ public class GameState : MonoBehaviour
     public GameObject transitionImage;
     public GameObject transitionImage2;
 
+    public GameObject finalMessage;
+
     private void Start()
     {
-        PlayerPrefs.SetInt("End", 0);
-
         int i = SceneManager.GetActiveScene().buildIndex;
 
         //set title level
@@ -69,13 +69,19 @@ public class GameState : MonoBehaviour
             SetRightSide();
         }
         //white opening transition screen, player in dead animation
-        if (PlayerPrefs.GetInt("LoadTransition", 0) == 0)
+        if (SceneManager.GetActiveScene().name == "LevelScene" && PlayerPrefs.GetInt("LoadTransition", 0) == 0)
         {
             playerAnim.SetTrigger("IsNotAwake");
             hud.SetActive(false);
             whiteScreen.SetActive(true);
             player.GetComponent<PlayerController>().enableInput = false;
             levelTitle.SetActive(false);
+        }
+        
+        if(SceneManager.GetActiveScene().name == "LevelScene 11" && PlayerPrefs.GetInt("LoadTransition", 0) == 0)
+        {
+            playerAnim.SetTrigger("IsNotAwake");
+            whiteScreen.SetActive(true);
         }
 
         //black opening transition screen, player in standby/move animation
@@ -156,17 +162,21 @@ public class GameState : MonoBehaviour
             }
         }
 
-        if (!player.GetComponent<PlayerController>().alive && enemy.GetComponent<EnemyBossController>().alive && !flag)
+        if (enemy != null)
         {
-            StartCoroutine(GameOverSequence(2));
-            flag = true;
+            if (!player.GetComponent<PlayerController>().alive && enemy.GetComponent<EnemyBossController>().alive && !flag)
+            {
+                StartCoroutine(GameOverSequence(2));
+                flag = true;
+            }
+
+            if (SceneManager.GetActiveScene().name == "LevelScene 9" && !enemy.GetComponent<EnemyBossController>().alive && !flag)
+            {
+                StartCoroutine(EndSequence(4));
+                flag = true;
+            }
         }
 
-        if (SceneManager.GetActiveScene().name == "LevelScene 9" && !enemy.GetComponent<EnemyBossController>().alive && !flag)
-        {
-            StartCoroutine(EndSequence(4));
-            flag = true;
-        }
 
         if (SceneManager.GetActiveScene().name == "LevelScene 10" && !flag)
         {
@@ -174,16 +184,20 @@ public class GameState : MonoBehaviour
             flag = true;
         }
 
-        if (PlayerPrefs.GetInt("cutscene2") == 0 && !flag1)
+        if (PlayerPrefs.GetInt("cutscene2") == 1 && !flag1)
         {
             StartCoroutine(BadEndingSequence());
             flag1 = true;
         }
 
-        if (PlayerPrefs.GetInt("cutscene2") == 1 && !flag1)
+        if (FindObjectOfType<CameraController>().displayMessage)
         {
-            StartCoroutine(GoodEndingSequence());
-            flag1 = true;
+            finalMessage.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 12" && !flag)
+        {
+            StartCoroutine(StartCredits());
         }
     }
 
@@ -237,10 +251,10 @@ public class GameState : MonoBehaviour
         dialogueCompound.SetActive(true);
         PlayerPrefs.SetInt("End", 2);
     }
-    public void GoodEndingSequenceDialogue()
+    public void GoodEndingDialogue()
     {
         ChangeSortOrder();
-        PlayerPrefs.SetInt("End", 3);
+        StartCoroutine(GoodEndingSequence());
 
     }
 
@@ -252,15 +266,16 @@ public class GameState : MonoBehaviour
     }
     IEnumerator BadEndingSequence()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         cutscene1.SetActive(true);
-        yield return new WaitForSeconds(3);
+        dialogueCompound.SetActive(false);
+        yield return new WaitForSeconds(5);
         cutscene1.SetActive(false);
         InterSceneDialogue0.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(8);
         InterSceneDialogue0.SetActive(false);
         InterSceneDialogue1.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(8);
         transitionImage.SetActive(true);
         PlayerPrefs.SetInt("SpawnPosition", 0);
         PlayerPrefs.SetInt("LoadTransition", 0);
@@ -269,19 +284,34 @@ public class GameState : MonoBehaviour
         PlayerPrefs.SetInt("PlayerMP", 0);
         PlayerPrefs.SetInt("PlayerHP", 100);
         PlayerPrefs.SetInt("End", 0);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(2);
     }
     IEnumerator GoodEndingSequence()
     {
         yield return new WaitForSeconds(1);
         InterSceneDialogue2.SetActive(true);
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(10);
         InterSceneDialogue2.SetActive(false);
         cutscene2.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         cutscene2.SetActive(false);
         InterSceneDialogue3.SetActive(true);
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(12);
         transitionImage2.SetActive(true);
+        yield return new WaitForSeconds(6);
+        PlayerPrefs.SetInt("SpawnPosition", 0);
+        PlayerPrefs.SetInt("LoadTransition", 0);
+        PlayerPrefs.SetInt("cutscene1", 0);
+        PlayerPrefs.SetInt("cutscene2", 0);
+        PlayerPrefs.SetInt("PlayerMP", 0);
+        PlayerPrefs.SetInt("PlayerHP", 100);
+        PlayerPrefs.SetInt("End", 0);
+        SceneManager.LoadScene(13);
+    }
+    IEnumerator StartCredits()
+    {
+        yield return new WaitForSeconds(7);
+        SceneManager.LoadScene(0);
     }
 }

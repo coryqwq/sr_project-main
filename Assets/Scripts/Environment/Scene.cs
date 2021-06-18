@@ -7,6 +7,7 @@ public class Scene : MonoBehaviour
     public GameObject transitionObject;
     public Animator transition;
     public int transitionTime = 4;
+    public GameObject bgm;
     public void Start()
     {
         if (SceneManager.GetActiveScene().name == "CutScene")

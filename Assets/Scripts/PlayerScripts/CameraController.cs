@@ -11,6 +11,8 @@ public class CameraController : MonoBehaviour
     public float elapsedTime = 0f;
     public float duration = 3f;
 
+    public bool displayMessage;
+
     private void OnTriggerEnter(Collider other)
     {
         //set reference position to player's position at the instance trigger enters wall collider
@@ -23,6 +25,11 @@ public class CameraController : MonoBehaviour
         if (other.gameObject.name == "CameraFollowTrigger")
         {
             startFollowX = true;
+        }
+
+        if (other.gameObject.name == "CreditsDialogueTrigger")
+        {
+            displayMessage = true;
         }
     }
     private void OnTriggerStay(Collider other)

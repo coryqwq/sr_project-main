@@ -663,6 +663,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077254658009748513, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077254658009748543, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1223,6 +1227,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077254658009748513, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077254658009748543, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1278,6 +1286,10 @@ PrefabInstance:
     - target: {fileID: 6077254658889334175, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077254659326323561, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
@@ -1653,7 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2044,7 +2056,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 282358331, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 282358333, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_Color.a
@@ -2080,8 +2092,8 @@ PrefabInstance:
       objectReference: {fileID: 71245388}
     - target: {fileID: 6077254657659395742, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
-      value: The balance of life and death is broken without a reaper to command
-        the laws of causailty.
+      value: As a result, the balance of life and death is broken without a reaper
+        to command the laws of causality.
       objectReference: {fileID: 0}
     - target: {fileID: 6077254657973574948, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_RenderMode
@@ -2099,6 +2111,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077254658009748513, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077254658009748543, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2109,7 +2125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077254658889334172, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6077254658889334175, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_RootOrder
@@ -2160,6 +2176,11 @@ PrefabInstance:
 --- !u!1 &1208457760 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6077254658889334172, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+  m_PrefabInstance: {fileID: 1208457759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1236118507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 282358331, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
   m_PrefabInstance: {fileID: 1208457759}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1244428657
@@ -2497,7 +2518,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1364168019}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2018006698}
+        m_TargetAssemblyTypeName: GameState, Assembly-CSharp
+        m_MethodName: GoodEndingDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1364168019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2602,7 +2635,7 @@ PrefabInstance:
     - target: {fileID: 6077254657659395742, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
       value: Alice walks away from the throne to lock the weakened reaper and herself
-        in a tomb to decay with the rest of the forest
+        in a tomb to decay with the rest of the forest.
       objectReference: {fileID: 0}
     - target: {fileID: 6077254657973574948, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_RenderMode
@@ -2618,6 +2651,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077254657990092726, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077254658009748513, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6077254658009748543, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
@@ -3358,7 +3395,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1515185769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2018006698}
+        m_TargetAssemblyTypeName: GameState, Assembly-CSharp
+        m_MethodName: BadEndingDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1515185769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3758,7 +3807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1880375022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4048,7 +4097,8 @@ MonoBehaviour:
   InterSceneDialogue2: {fileID: 1405028017}
   InterSceneDialogue3: {fileID: 1208457760}
   transitionImage: {fileID: 312837953}
-  transitionImage2: {fileID: 0}
+  transitionImage2: {fileID: 1236118507}
+  finalMessage: {fileID: 0}
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0
@@ -4530,7 +4580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[3].sentences.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.size
@@ -4606,28 +4656,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[2].sentences.Array.data[1]
+      value: '(The deep, dark red aura swallows her as she violently struggles to
+        escape)
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.data[2]
       value: '(The deep dark red aura swallows her as she helplessly struggles to
         get out)
 
 '
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
-      propertyPath: dialogue.Array.data[2].sentences.Array.data[2]
-      value: '
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[3].sentences.Array.data[0]
-      value: AHHHHHHHHHH!
+      value: PLEASE...
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[3].sentences.Array.data[1]
-      value: 
+      value: KILL...
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[3].sentences.Array.data[2]
-      value: 
+      value: ME...
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[3].sentences.Array.data[3]
