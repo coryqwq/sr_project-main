@@ -13,7 +13,12 @@ public class Scene : MonoBehaviour
         {
             PlayerPrefs.SetInt("SpawnPosition", 0);
             PlayerPrefs.SetInt("LoadTransition", 0);
+            PlayerPrefs.SetInt("cutscene1", 0);
+            PlayerPrefs.SetInt("cutscene2", 0);
             PlayerPrefs.SetInt("PlayerMP", 0);
+            PlayerPrefs.SetInt("PlayerHP", 100);
+            PlayerPrefs.SetInt("End", 0);
+
             StartCoroutine(DelayStartLevel(2));
         }
     }

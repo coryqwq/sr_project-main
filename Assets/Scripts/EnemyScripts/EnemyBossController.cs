@@ -25,6 +25,8 @@ public class EnemyBossController : MonoBehaviour
 
     public GameObject ps;
     public float particleLifetime = 0.5f;
+
+    public bool alive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,7 @@ public class EnemyBossController : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            alive = false;
             CancelInvoke();
             ps.SetActive(false);
             elapsedTime += Time.deltaTime;

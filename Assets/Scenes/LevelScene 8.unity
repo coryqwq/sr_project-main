@@ -468,6 +468,144 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &422148827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
+      value: My instincts have led me here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[1]
+      value: But... what is this place?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[3]
+      value: (She glances to an inscription carved into her right forearm)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[4]
+      value: '(It reads: "A-L-I-C-E")'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[5]
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[6]
+      value: Alice?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[7]
+      value: (Faint memories of Alices' previous life fade into conscious)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[8]
+      value: I'm Alice... Alice the Doll.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[9]
+      value: And I must seek redemption against the Reaper.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[10]
+      value: I must go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 834710414}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 73897626}
+    - target: {fileID: 1736931440343416373, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: levelTitle
+      value: 
+      objectReference: {fileID: 1867106722}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689680, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_Name
+      value: DialogueCompound (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e7c93705130d0f41875646650903338, type: 3}
+--- !u!1 &422148828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1736931440701689683, guid: 4e7c93705130d0f41875646650903338, type: 3}
+  m_PrefabInstance: {fileID: 422148827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &459484661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.data[9]
-      value: The voice in my head urges me to seek redemption against the Reaper.
+      value: And I must seek redemption against the Reaper.
       objectReference: {fileID: 0}
     - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.data[10]
@@ -1406,6 +1544,7 @@ MonoBehaviour:
   hud: {fileID: 834710412}
   deadDialogueCompound: {fileID: 0}
   sceneScript: {fileID: 0}
+  dialogueCompound2: {fileID: 422148828}
   flag: 0
 --- !u!4 &2018006699
 Transform:

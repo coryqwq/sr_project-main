@@ -5464,7 +5464,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6095,7 +6095,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 9.42
+      value: 7.14
       mode: 0
       spread: 0
       speed:
@@ -6330,10 +6330,19 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.0143966675
-          value: 1
+          time: 0
+          value: 0
           inSlope: 0
           outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.6344489
+          value: 1
+          inSlope: -0.25510097
+          outSlope: -0.25510097
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334

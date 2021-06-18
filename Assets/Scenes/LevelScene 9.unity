@@ -420,6 +420,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 282358331, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
   m_PrefabInstance: {fileID: 2116318484}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &186755351 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7823516592979548259, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+  m_PrefabInstance: {fileID: 1447069454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &231814005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -655,11 +660,111 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &324469187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7823516591728785624, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+  m_PrefabInstance: {fileID: 1447069454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &354515474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2067076335, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
   m_PrefabInstance: {fileID: 1421683304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &373871995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373871999}
+  - component: {fileID: 373871998}
+  - component: {fileID: 373871997}
+  - component: {fileID: 373871996}
+  m_Layer: 0
+  m_Name: ReaperImage (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &373871996
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373871995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: add196edfde0d14459b53d99a22d9f0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &373871997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373871995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c001c1664bfb7e14b84ecc07b235e7f2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &373871998
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373871995}
+  m_CullTransparentMesh: 1
+--- !u!224 &373871999
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373871995}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1151.6533}
+  m_LocalScale: {x: 1, y: 1, z: 143.95667}
+  m_Children: []
+  m_Father: {fileID: 186755351}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 870, y: -223}
+  m_SizeDelta: {x: 820, y: 1780}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1457,371 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2282395231802320292, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
   m_PrefabInstance: {fileID: 1421683304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1447069454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 280789727631585351, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Name
+      value: ReaperImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717545344460592063, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717545344460592063, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1780
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717545344460592063, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717545344460592063, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717545344460592063, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 870
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717545344460592063, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -223
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516738091309545988, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c5aceb17e77d8c543b6cfa2294db55a3, type: 2}
+    - target: {fileID: 7823516591728785624, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Name
+      value: DialogueCompound2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785624, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516591728785627, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[0].name
+      value: Reaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[1].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[2].name
+      value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[3].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].name
+      value: Reaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[5].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[6].name
+      value: Reaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[7].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[8].name
+      value: Reaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[9].name
+      value: Alice the Doll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[10].name
+      value: Reaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[6].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[7].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[8].sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[9].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[10].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
+      value: Agh...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[1]
+      value: My... what have you done...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.data[0]
+      value: Silence.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.data[1]
+      value: Reaper.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.data[0]
+      value: (Alice walks to the inner chamber of the temple)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[0]
+      value: The reaper?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[1]
+      value: Reaper... What are the spirits?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[2]
+      value: What is this forest?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[3]
+      value: 'And what am I? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[0]
+      value: 'The spirits are souls in limbo, essence to feed the forests'' aura
+        that sustains the forest and my vitality. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[1]
+      value: The forest is our mother, a cursed mother that gives life and bears
+        the weight of our souls.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[2]
+      value: And you. Alice.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[3]
+      value: You are my doll, and you've come to deliver the forest spirits' souls
+        to me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[0]
+      value: No, this can't be right... These souls are of spirits who are innocent
+        from the ordeal.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[1]
+      value: And my purpose is to slaughter them and serve you?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[2]
+      value: And you. Alice.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[3]
+      value: You are my doll, and you've come to deliver the forest spirits' souls
+        to me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[6].sentences.Array.data[0]
+      value: You wouldn't have otherwise without me giving you your purpose.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[6].sentences.Array.data[1]
+      value: You would have been a soul in limbo.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[7].sentences.Array.data[0]
+      value: You've manipulated me to be your servant to kill innocent lives!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[7].sentences.Array.data[1]
+      value: I can't forgive you for this.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[8].sentences.Array.data[0]
+      value: You naive child. My dear Alice, this is the curse of the forest to which
+        we are constrained.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[8].sentences.Array.data[1]
+      value: You are no better than me, we are all cursed to our fates.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[8].sentences.Array.data[2]
+      value: You are strong, Alice, but I am beyond strength for I can not die.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[8].sentences.Array.data[3]
+      value: Defy me, and a new doll will replace you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[9].sentences.Array.data[0]
+      value: I WILL RATHER DIE DEFEATING YOU THAN SERVE THIS WRETCHED WORLD!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[9].sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[10].sentences.Array.data[0]
+      value: So it begins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 1421683305}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 73897626}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: levelTitle
+      value: 
+      objectReference: {fileID: 71245388}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: anim.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: anim.Array.data[2]
+      value: 
+      objectReference: {fileID: 1447069456}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: anim.Array.data[3]
+      value: 
+      objectReference: {fileID: 1447069455}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: anim.Array.data[4]
+      value: 
+      objectReference: {fileID: 373871996}
+    - target: {fileID: 8630510453627438123, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c001c1664bfb7e14b84ecc07b235e7f2, type: 3}
+    - target: {fileID: 8630510453627438123, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630510453627438123, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630510453627438123, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630510453627438123, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+--- !u!95 &1447069455 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7823516592996066044, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+  m_PrefabInstance: {fileID: 1447069454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1447069456 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4516738091309545988, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+  m_PrefabInstance: {fileID: 1447069454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1546571170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6077254658889334172, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
@@ -1779,6 +2249,7 @@ MonoBehaviour:
   levelTitle: {fileID: 71245388}
   playerAnim: {fileID: 73897630}
   player: {fileID: 73897626}
+  enemy: {fileID: 2281134782201426742}
   cameraCompound: {fileID: 900608781}
   cameraFollowTrigger: {fileID: 1700682179}
   dialogueCompound: {fileID: 958334805}
@@ -1806,7 +2277,11 @@ MonoBehaviour:
   hud: {fileID: 1421683306}
   deadDialogueCompound: {fileID: 1546571170}
   sceneScript: {fileID: 519420035}
+  dialogueCompound2: {fileID: 324469187}
+  prompt: {fileID: 0}
   flag: 0
+  flag1: 0
+  flag2: 0
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0
@@ -1978,6 +2453,7 @@ MonoBehaviour:
   hpBarMax: 0
   ps: {fileID: 1376698264}
   particleLifetime: 0.6
+  alive: 1
 --- !u!1001 &8062177099553089202
 PrefabInstance:
   m_ObjectHideFlags: 0

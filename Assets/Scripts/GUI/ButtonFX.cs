@@ -22,4 +22,21 @@ public class ButtonFX : MonoBehaviour
     {
         button[1].SetBool("Highlight", false);
     }
+
+    public void AcceptButtonHighlightOn()
+    {
+        button[0].SetBool("Highlight", true);
+    }
+    public void AcceptButtonHighlightOff()
+    {
+        button[0].SetBool("Highlight", false);
+    }
+    public void DeclineButtonHighlightOn()
+    {
+        button[1].SetBool("Highlight", true);
+    }
+    public void DeclineButtonHighlightOff()
+    {
+        button[1].SetBool("Highlight", false);
+    }
 }

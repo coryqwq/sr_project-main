@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 public class GameState : MonoBehaviour
 {
     public GameObject whiteScreen;
@@ -10,25 +11,44 @@ public class GameState : MonoBehaviour
     public GameObject levelTitle;
     public Animator playerAnim;
     public GameObject player;
+    public GameObject enemy;
     public Transform cameraCompound;
     public Transform cameraFollowTrigger;
     public GameObject dialogueCompound;
     public float[] xCamPos = new float[] { 0.02f, 14.9f, 2.43f, 5.5f, 0f, 12.2f, 3.88f, 10.31f };
     public string[] levelTitles = new string[] { "Heart of the Forest", "Forest Meadow", "Azure Lake",
                                                 "Twilit Forest", "Near the Floral Flute", "Grove of the Spirit Tree",
-                                                "Deep Fairy Forest", "Fungos Forest", "Temple of Rebirth", "Reaper's Throne"};
+                                                "Deep Fairy Forest", "Fungos Forest", "Temple of Rebirth", "Reaper's Throne"," "};
     public TextMeshProUGUI levelTitleText;
     public GameObject cutscene1;
     public GameObject cutscene2;
+    public GameObject cutscene3;
+
     public GameObject hud;
 
     public GameObject deadDialogueCompound;
 
     public Scene sceneScript;
 
+    public GameObject dialogueCompound2;
+
+    public GameObject prompt;
     public bool flag = false;
+    public bool flag1 = false;
+    public bool flag2 = false;
+
+    public GameObject InterSceneDialogue0;
+    public GameObject InterSceneDialogue1;
+    public GameObject InterSceneDialogue2;
+    public GameObject InterSceneDialogue3;
+
+    public GameObject transitionImage;
+    public GameObject transitionImage2;
+
     private void Start()
     {
+        PlayerPrefs.SetInt("End", 0);
+
         int i = SceneManager.GetActiveScene().buildIndex;
 
         //set title level
@@ -80,6 +100,16 @@ public class GameState : MonoBehaviour
             StartCoroutine(DelayEnablePlayer(5));
         }
 
+        if (SceneManager.GetActiveScene().name == "LevelScene 8" && (PlayerPrefs.GetInt("LoadTransition") == 1))
+        {
+            dialogueCompound2.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 10")
+        {
+            player.GetComponent<PlayerController>().enableInput = false;
+        }
+
     }
     void SetRightSide()
     {
@@ -126,10 +156,34 @@ public class GameState : MonoBehaviour
             }
         }
 
-        if (!player.GetComponent<PlayerController>().alive && !flag)
+        if (!player.GetComponent<PlayerController>().alive && enemy.GetComponent<EnemyBossController>().alive && !flag)
         {
             StartCoroutine(GameOverSequence(2));
             flag = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 9" && !enemy.GetComponent<EnemyBossController>().alive && !flag)
+        {
+            StartCoroutine(EndSequence(4));
+            flag = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 10" && !flag)
+        {
+            StartCoroutine(DelayPrompt(2));
+            flag = true;
+        }
+
+        if (PlayerPrefs.GetInt("cutscene2") == 0 && !flag1)
+        {
+            StartCoroutine(BadEndingSequence());
+            flag1 = true;
+        }
+
+        if (PlayerPrefs.GetInt("cutscene2") == 1 && !flag1)
+        {
+            StartCoroutine(GoodEndingSequence());
+            flag1 = true;
         }
     }
 
@@ -157,6 +211,77 @@ public class GameState : MonoBehaviour
         blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(4);
         deadDialogueCompound.SetActive(true);
+        PlayerPrefs.SetInt("PlayerHP", 100);
         sceneScript.StartRespawnTransition();
+    }
+
+    public IEnumerator EndSequence(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(2);
+        dialogueCompound2.SetActive(true);
+        PlayerPrefs.SetInt("End", 1);
+    }
+
+    public IEnumerator DelayPrompt(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        prompt.SetActive(true);
+
+    }
+
+    public void BadEndingDialogue()
+    {
+        ChangeSortOrder();
+        dialogueCompound.SetActive(true);
+        PlayerPrefs.SetInt("End", 2);
+    }
+    public void GoodEndingSequenceDialogue()
+    {
+        ChangeSortOrder();
+        PlayerPrefs.SetInt("End", 3);
+
+    }
+
+    public void ChangeSortOrder()
+    {
+        prompt.GetComponent<Canvas>().sortingOrder = 1;
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
+
+    }
+    IEnumerator BadEndingSequence()
+    {
+        yield return new WaitForSeconds(1);
+        cutscene1.SetActive(true);
+        yield return new WaitForSeconds(3);
+        cutscene1.SetActive(false);
+        InterSceneDialogue0.SetActive(true);
+        yield return new WaitForSeconds(4);
+        InterSceneDialogue0.SetActive(false);
+        InterSceneDialogue1.SetActive(true);
+        yield return new WaitForSeconds(4);
+        transitionImage.SetActive(true);
+        PlayerPrefs.SetInt("SpawnPosition", 0);
+        PlayerPrefs.SetInt("LoadTransition", 0);
+        PlayerPrefs.SetInt("cutscene1", 0);
+        PlayerPrefs.SetInt("cutscene2", 0);
+        PlayerPrefs.SetInt("PlayerMP", 0);
+        PlayerPrefs.SetInt("PlayerHP", 100);
+        PlayerPrefs.SetInt("End", 0);
+        SceneManager.LoadScene(2);
+    }
+    IEnumerator GoodEndingSequence()
+    {
+        yield return new WaitForSeconds(1);
+        InterSceneDialogue2.SetActive(true);
+        yield return new WaitForSeconds(6);
+        InterSceneDialogue2.SetActive(false);
+        cutscene2.SetActive(true);
+        yield return new WaitForSeconds(3);
+        cutscene2.SetActive(false);
+        InterSceneDialogue3.SetActive(true);
+        yield return new WaitForSeconds(6);
+        transitionImage2.SetActive(true);
     }
 }

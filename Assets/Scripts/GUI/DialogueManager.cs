@@ -202,7 +202,7 @@ public class DialogueManager : MonoBehaviour
             //gameObject.GetComponent<AudioSource>().Play();
             dialogueText.text += letter;
 
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         typing = false;
@@ -218,7 +218,7 @@ public class DialogueManager : MonoBehaviour
                 levelTitle.SetActive(true);
             }
         }
-        else if (player.GetComponent<PlayerController>().alive)
+        else if (FindObjectOfType<EnemyBossController>().alive)
         {
             
             StartCoroutine(FindObjectOfType<GameState>().DelayEnablePlayer(5));
@@ -232,7 +232,27 @@ public class DialogueManager : MonoBehaviour
         anim[0].SetBool("IsOpen", false);
         anim[1].SetBool("IsOpen", false);
         anim[animIndex].SetBool("IsSpeaking", false);
+
+        if(PlayerPrefs.GetInt("End") == 1)
+        {
+            StartCoroutine(DelayLoadScene()); 
+        }
+
+        if (PlayerPrefs.GetInt("End") == 2)
+        {
+            PlayerPrefs.SetInt("cutscene2", 0);
+        }
+
+        if (PlayerPrefs.GetInt("End") == 3)
+        {
+            PlayerPrefs.SetInt("cutscene2", 1);
+        }
+
     }
 
-
+    IEnumerator DelayLoadScene()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(12);
+    }
 }

@@ -13,8 +13,6 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("PlayerHP", 100);
-        //PlayerPrefs.SetInt("PlayerMP", 100);
 
         playerMPBar = GameObject.FindWithTag("MP").GetComponent<RectTransform>();
         playerHPBar = GameObject.FindWithTag("HP").GetComponent<RectTransform>();
