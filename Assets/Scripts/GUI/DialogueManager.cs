@@ -135,11 +135,15 @@ public class DialogueManager : MonoBehaviour
 
             anim[animIndex].SetBool("IsSpeaking", true);
 
+            if (PlayerPrefs.GetInt("End") == 2)
+            {
+                voice.Stop();
+                voice.clip = voiceLine[voiceIndex];
+                voice.Play();
+                voiceIndex++;
+            }
             //assign and play voice line
-            //voice.Stop();
-            //voice.clip = voiceLine[voiceIndex];
-            //voice.Play();
-            //voiceIndex++;
+
 
             string sentence = sentences.Dequeue();
             StartCoroutine(TypeSentence(sentence));

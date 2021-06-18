@@ -1004,6 +1004,7 @@ MonoBehaviour:
   transitionObject: {fileID: 151123846}
   transition: {fileID: 80106264}
   transitionTime: 6
+  bgm: {fileID: 0}
 --- !u!1 &530324652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1228,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681958802}
   m_CullTransparentMesh: 1
+--- !u!1001 &852531019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1780345387677792111, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_Name
+      value: bgm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.8427672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9994555
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.1689615
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052872465923222409, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4eb02c882afba46418fb11cf6536337f, type: 3}
 --- !u!1 &900608780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,6 +2332,7 @@ MonoBehaviour:
   levelTitleText: {fileID: 80106265}
   cutscene1: {fileID: 1594928061}
   cutscene2: {fileID: 1880375021}
+  cutscene3: {fileID: 0}
   hud: {fileID: 1421683306}
   deadDialogueCompound: {fileID: 1546571170}
   sceneScript: {fileID: 519420035}
@@ -2282,6 +2341,13 @@ MonoBehaviour:
   flag: 0
   flag1: 0
   flag2: 0
+  InterSceneDialogue0: {fileID: 0}
+  InterSceneDialogue1: {fileID: 0}
+  InterSceneDialogue2: {fileID: 0}
+  InterSceneDialogue3: {fileID: 0}
+  transitionImage: {fileID: 0}
+  transitionImage2: {fileID: 0}
+  finalMessage: {fileID: 0}
 --- !u!4 &2018006699
 Transform:
   m_ObjectHideFlags: 0
@@ -2454,6 +2520,103 @@ MonoBehaviour:
   ps: {fileID: 1376698264}
   particleLifetime: 0.6
   alive: 1
+  flag: 0
+--- !u!82 &2281134782201426744
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281134782201426742}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1728c4454a276064e8313abe93442c3e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &8062177099553089202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2700,7 +2863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[5].sentences.Array.size
@@ -2761,20 +2924,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[0]
-      value: 'The spirits are souls in limbo, essence to feed the forests'' aura
-        that sustains the forest and my vitality. '
+      value: Dear, Alice...
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[1]
-      value: The forest is our mother, a cursed mother that gives life and bears
-        the weight of our souls.
+      value: 'The spirits are souls in limbo, fodder to feed the forests'' aura that
+        sustains the forest and my vitality. '
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[2]
-      value: And you. Alice.
+      value: The forest is our mother, a blighted mother that gives life and bears
+        the weight of our souls.
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[3]
+      value: And you, Alice...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[4]
       value: You are my doll, and you've come to deliver the forest spirits' souls
         to me.
       objectReference: {fileID: 0}
@@ -2815,7 +2982,7 @@ PrefabInstance:
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[8].sentences.Array.data[0]
       value: You naive child. My dear Alice, this is the curse of the forest to which
-        we are constrained.
+        we are sealed.
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[8].sentences.Array.data[1]

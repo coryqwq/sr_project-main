@@ -21,9 +21,6 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        Debug.Log(PlayerPrefs.GetInt("PlayerMP"));
-
         if (PlayerPrefs.GetInt("PlayerMP") <= 100)
         {
             float currentMP = PlayerPrefs.GetInt("PlayerMP");

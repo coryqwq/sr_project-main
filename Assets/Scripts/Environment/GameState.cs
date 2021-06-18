@@ -47,8 +47,10 @@ public class GameState : MonoBehaviour
 
     public GameObject finalMessage;
 
+
     private void Start()
     {
+        PlayerPrefs.SetInt("PlayerHP", 100);
         int i = SceneManager.GetActiveScene().buildIndex;
 
         //set title level
@@ -93,6 +95,7 @@ public class GameState : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "LevelScene 9" && PlayerPrefs.GetInt("cutscene1") == 0)
         {
+            player.GetComponent<PlayerController>().enableInput = false;
             blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
             levelTitle.SetActive(false);
             hud.SetActive(false);
@@ -109,6 +112,15 @@ public class GameState : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "LevelScene 8" && (PlayerPrefs.GetInt("LoadTransition") == 1))
         {
             dialogueCompound2.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name == "LevelScene 8" && (PlayerPrefs.GetInt("LoadTransition") == 0))
+        {
+            playerAnim.SetTrigger("IsNotAwake");
+            hud.SetActive(false);
+            whiteScreen.SetActive(true);
+            player.GetComponent<PlayerController>().enableInput = false;
+            levelTitle.SetActive(false);
         }
 
         if (SceneManager.GetActiveScene().name == "LevelScene 10")
@@ -248,8 +260,9 @@ public class GameState : MonoBehaviour
     public void BadEndingDialogue()
     {
         ChangeSortOrder();
-        dialogueCompound.SetActive(true);
         PlayerPrefs.SetInt("End", 2);
+        dialogueCompound.SetActive(true);
+        
     }
     public void GoodEndingDialogue()
     {
@@ -267,6 +280,7 @@ public class GameState : MonoBehaviour
     IEnumerator BadEndingSequence()
     {
         yield return new WaitForSeconds(2);
+        GetComponent<AudioSource>().Play();
         cutscene1.SetActive(true);
         dialogueCompound.SetActive(false);
         yield return new WaitForSeconds(5);

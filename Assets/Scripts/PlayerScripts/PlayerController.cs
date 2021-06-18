@@ -54,11 +54,15 @@ public class PlayerController : MonoBehaviour
     public float cameraShakeDuration = 0.2f;
 
     public bool alive = true;
+
+    public AudioClip[] sfx;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         cameraFollowPlayerScript = mainCamera.GetComponent<CameraFollowPlayer>();
         rippleEffectScript = mainCamera.GetComponent<RippleEffect>();
     }
@@ -119,7 +123,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
+        if (PlayerPrefs.GetInt("PlayerHP") <= 0)
+        {
+            rb.velocity = Vector3.zero;
+            
+        }
+            if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
         {
             enableInput = false;
             rb.velocity = Vector3.zero;
@@ -469,5 +478,32 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+
+    void LimitStartSFX()
+    {
+        audioSource.PlayOneShot(sfx[0]);
+        audioSource.PlayOneShot(sfx[2]);
+
+    }
+
+    void LimitEndSfx()
+    {
+        audioSource.PlayOneShot(sfx[3]); 
+    }
+
+    void LimitHit()
+    {
+        audioSource.PlayOneShot(sfx[4]);
+    }
+
+    void DeathSFX()
+    {
+        audioSource.PlayOneShot(sfx[1]);
+    }
+
+    void HitSFX()
+    {
+        audioSource.PlayOneShot(sfx[5]);
     }
 }

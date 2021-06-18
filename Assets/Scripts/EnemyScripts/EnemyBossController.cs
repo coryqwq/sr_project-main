@@ -27,6 +27,7 @@ public class EnemyBossController : MonoBehaviour
     public float particleLifetime = 0.5f;
 
     public bool alive = true;
+    public bool flag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +79,13 @@ public class EnemyBossController : MonoBehaviour
         if (currentHP <= maxHP)
         {
             hpBar.sizeDelta = new Vector2((currentHP * (hpBarMax / maxHP)), hpBar.sizeDelta.y);
+        }
+
+        if (!alive && !flag)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+            flag = true;
         }
     }
 

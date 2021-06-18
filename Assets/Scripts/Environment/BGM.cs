@@ -8,16 +8,23 @@ public class BGM : MonoBehaviour
     public AudioClip[] bgm;
 
     public int currentSceneIndex;
+
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         if (currentSceneIndex == 2 || currentSceneIndex == 3)
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[0])
-            {
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[0])
+            {           
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[0];
                 bgmSource.GetComponent<AudioSource>().Play();
@@ -25,7 +32,7 @@ public class BGM : MonoBehaviour
         }
         if (currentSceneIndex == 4 || currentSceneIndex == 5)
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[1])
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[1])
             {
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[1];
@@ -34,7 +41,7 @@ public class BGM : MonoBehaviour
         }
         if (currentSceneIndex == 6)
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[2])
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[2])
             {
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[2];
@@ -43,7 +50,7 @@ public class BGM : MonoBehaviour
         }
         if (currentSceneIndex == 7 || currentSceneIndex == 8)
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[3])
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[3])
             {
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[3];
@@ -52,7 +59,7 @@ public class BGM : MonoBehaviour
         }
         if (currentSceneIndex == 9)
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[4])
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[4])
             {
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[4];
@@ -60,9 +67,19 @@ public class BGM : MonoBehaviour
             }
         }
 
-        if (currentSceneIndex == 11)
+        if (currentSceneIndex == 11 && bgmSource.GetComponent<AudioSource>().clip != bgm[5])
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[5])
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[7])
+            {
+                bgmSource.GetComponent<AudioSource>().Stop();
+                bgmSource.GetComponent<AudioSource>().clip = bgm[7];
+                bgmSource.GetComponent<AudioSource>().Play();
+            }
+        }
+
+        if (currentSceneIndex == 11 && FindObjectOfType<PlayerController>().enableInput)
+        {
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[5])
             {
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[5];
@@ -72,18 +89,46 @@ public class BGM : MonoBehaviour
 
         if (currentSceneIndex == 13)
         {
-            if (!bgmSource.GetComponent<AudioSource>().clip == bgm[6])
+            if (bgmSource.GetComponent<AudioSource>().clip != bgm[6])
             {
                 bgmSource.GetComponent<AudioSource>().Stop();
                 bgmSource.GetComponent<AudioSource>().clip = bgm[6];
                 bgmSource.GetComponent<AudioSource>().Play();
             }
         }
+
+        if (currentSceneIndex == 14)
+        {
+            bgmSource.GetComponent<AudioSource>().Stop();
+        }
+
+        if(currentSceneIndex == 11)
+        {
+            if(!FindObjectOfType<PlayerController>().alive || !FindObjectOfType<EnemyBossController>().alive)
+            {
+                bgmSource.GetComponent<AudioSource>().Stop();
+
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayDeclineBgm()
     {
+        if (bgmSource.GetComponent<AudioSource>().clip != bgm[7])
+        {
+            bgmSource.GetComponent<AudioSource>().Stop();
+            bgmSource.GetComponent<AudioSource>().clip = bgm[7];
+            bgmSource.GetComponent<AudioSource>().Play();
+        }
+    }
 
+    public void PlayAcceptBgm()
+    {
+        if (bgmSource.GetComponent<AudioSource>().clip != bgm[8])
+        {
+            bgmSource.GetComponent<AudioSource>().Stop();
+            bgmSource.GetComponent<AudioSource>().clip = bgm[8];
+            bgmSource.GetComponent<AudioSource>().Play();
+        }
     }
 }
