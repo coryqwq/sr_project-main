@@ -9,11 +9,21 @@ public class BGM : MonoBehaviour
 
     public int currentSceneIndex;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
+    public static BGM Instance { get; private set; }
 
+    public int value;
+    // Start is called before the first frame update
+    void Awake ()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
