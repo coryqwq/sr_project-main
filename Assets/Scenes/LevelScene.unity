@@ -1177,6 +1177,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1736931439734075370, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1184,6 +1188,10 @@ PrefabInstance:
     - target: {fileID: 1736931439734075371, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736931439750059384, guid: 4e7c93705130d0f41875646650903338, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1736931439958862929, guid: 4e7c93705130d0f41875646650903338, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.size
@@ -1298,6 +1306,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 974666442, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1174919727, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_Color.a
       value: 0.38431373
@@ -1305,6 +1317,10 @@ PrefabInstance:
     - target: {fileID: 1650657879, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067076335, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 245.668
       objectReference: {fileID: 0}
     - target: {fileID: 2282395231651945059, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_Pivot.x

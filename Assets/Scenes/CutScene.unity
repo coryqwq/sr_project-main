@@ -394,6 +394,7 @@ MonoBehaviour:
   transitionObject: {fileID: 282358331}
   transition: {fileID: 0}
   transitionTime: 4
+  bgm: {fileID: 0}
 --- !u!82 &454165700
 AudioSource:
   m_ObjectHideFlags: 0
@@ -593,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 454165697}
+    - target: {fileID: 6077254658009748513, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6077254658889334172, guid: b9d40069a0a0be14ab6a0408c830b416, type: 3}
       propertyPath: m_Name
       value: InterSceneDialogueCompound

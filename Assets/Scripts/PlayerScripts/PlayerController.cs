@@ -123,15 +123,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (PlayerPrefs.GetInt("PlayerHP") <= 0)
-        {
-            rb.velocity = Vector3.zero;
-            
-        }
-            if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
+        if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
         {
             enableInput = false;
-            rb.velocity = Vector3.zero;
+            rb.drag = 1000;
+            rb.useGravity = true;
             anim.SetTrigger("Dying");
             alive = false;
             flag6 = true;
@@ -312,7 +308,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerLimit()
     {
-        if (PlayerPrefs.GetInt("PlayerMP") == 100 && (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1)))
+        if (PlayerPrefs.GetInt("PlayerMP") == 100 && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Mouse1)))
         {
             anim.SetTrigger("Limit");
             FindObjectOfType<RippleEffect>().refractionStrength = 0.75f;
@@ -327,104 +323,107 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (PlayerPrefs.GetInt("PlayerHP") > 0)
         {
-            rb.useGravity = true;
-            //change player fall curve 
-            if (rb.velocity.y < 0)
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             {
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart"))
+                rb.useGravity = true;
+                //change player fall curve 
+                if (rb.velocity.y < 0)
                 {
-                    rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * 4 * Time.deltaTime;
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttackStart"))
+                    {
+                        rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * 4 * Time.deltaTime;
+                    }
+                    else
+                    {
+                        rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
+                    }
+                }
+                //change player jump height on input held down
+                if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow)))
+                {
+                    rb.velocity += Vector3.up * Physics.gravity.y * jumpMultiplier * Time.deltaTime;
+                }
+            }
+
+            if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart && !isGrounded)
+            {
+                rb.useGravity = false;
+                rb.velocity = Vector3.zero;
+                attackSequenceStart = false;
+            }
+
+            if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart && isGrounded)
+            {
+                rb.velocity = Vector3.zero;
+                rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
+                attackSequenceStart = false;
+            }
+
+            //add force when player attacks
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack0") && flag0 == false)
+            {
+                rb.AddForce(new Vector3(Mathf.Abs(1 + rb.velocity.x) * direction, 0, 0) * attackForce, ForceMode.Impulse);
+                flag0 = true;
+            }
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack1") && flag1 == false)
+            {
+                rb.AddForce(new Vector3(direction, 0, 0) * attackForce, ForceMode.Impulse);
+                flag1 = true;
+            }
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack2") && flag2 == false)
+            {
+                if (isGrounded)
+                {
+                    rb.AddForce(new Vector3(direction, 0, 0) * attackForce * 1.8f, ForceMode.Impulse);
+                    flag2 = true;
                 }
                 else
                 {
-                    rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
+                    rb.AddForce(new Vector3(direction * 0.75f, 1, 0) * attackForce * 2.2f, ForceMode.Impulse);
+                    flag2 = true;
                 }
             }
-            //change player jump height on input held down
-            if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow)))
+
+            //player jump physics
+            if (jump)
             {
-                rb.velocity += Vector3.up * Physics.gravity.y * jumpMultiplier * Time.deltaTime;
+                rb.velocity = Vector3.up * jumpForce;
+                jump = false;
             }
-        }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart && !isGrounded)
-        {
-            rb.useGravity = false;
-            rb.velocity = Vector3.zero;
-            attackSequenceStart = false;
-        }
-
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && attackSequenceStart && isGrounded)
-        {
-            rb.velocity = Vector3.zero;
-            rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
-            attackSequenceStart = false;
-        }
-
-        //add force when player attacks
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack0") && flag0 == false)
-        {
-            rb.AddForce(new Vector3(Mathf.Abs(1 + rb.velocity.x) * direction, 0, 0) * attackForce, ForceMode.Impulse);
-            flag0 = true;
-        }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack1") && flag1 == false)
-        {
-            rb.AddForce(new Vector3(direction, 0, 0) * attackForce, ForceMode.Impulse);
-            flag1 = true;
-        }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerAttack2") && flag2 == false)
-        {
-            if (isGrounded)
+            //player horizontal movement physics
+            //player dash applies horizontal vector in current direction
+            //disable horizontal movement control during dash for the dash duration 
+            elapsedTime += Time.fixedDeltaTime;
+            if (elapsedTime > dashDuration && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             {
-                rb.AddForce(new Vector3(direction, 0, 0) * attackForce * 1.8f, ForceMode.Impulse);
-                flag2 = true;
+                rb.velocity = new Vector3(input.x, rb.velocity.y, 0);
             }
-            else
+            if (dash)
             {
-                rb.AddForce(new Vector3(direction * 0.75f, 1, 0) * attackForce * 2.2f, ForceMode.Impulse);
-                flag2 = true;
+                DashSFX();
+                if (!isGrounded)
+                {
+                    rb.velocity += new Vector3(direction, 1, 0) * dashForce;
+                }
+                else
+                {
+                    rb.velocity += new Vector3(direction, 0, 0) * dashForce;
+                }
+                FindObjectOfType<RippleEffect>().refractionStrength = 0.123f;
+                FindObjectOfType<RippleEffect>().reflectionStrength = 0.539f;
+                FindObjectOfType<RippleEffect>().waveSpeed = 1f;
+                FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+                elapsedTime = 0;
+                dash = false;
             }
-        }
 
-        //player jump physics
-        if (jump)
-        {
-            rb.velocity = Vector3.up * jumpForce;
-            jump = false;
-        }
-
-        //player horizontal movement physics
-        //player dash applies horizontal vector in current direction
-        //disable horizontal movement control during dash for the dash duration 
-        elapsedTime += Time.fixedDeltaTime;
-        if (elapsedTime > dashDuration && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-        {
-            rb.velocity = new Vector3(input.x, rb.velocity.y, 0);
-        }
-        if (dash)
-        {
-            DashSFX();
-            if (!isGrounded)
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
             {
-                rb.velocity += new Vector3(direction, 1, 0) * dashForce;
+                rb.velocity = Vector3.zero;
             }
-            else
-            {
-                rb.velocity += new Vector3(direction, 0, 0) * dashForce;
-            }
-            FindObjectOfType<RippleEffect>().refractionStrength = 0.123f;
-            FindObjectOfType<RippleEffect>().reflectionStrength = 0.539f;
-            FindObjectOfType<RippleEffect>().waveSpeed = 1f;
-            FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-            elapsedTime = 0;
-            dash = false;
-        }
-
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("playerDownAttack"))
-        {
-            rb.velocity = Vector3.zero;
         }
     }
 
@@ -490,7 +489,7 @@ public class PlayerController : MonoBehaviour
 
     void LimitEndSfx()
     {
-        audioSource.PlayOneShot(sfx[3]); 
+        audioSource.PlayOneShot(sfx[3]);
     }
 
     void LimitHit()

@@ -182,6 +182,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 26.29, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!224 &184915006 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 302457654, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &231814005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +198,14 @@ PrefabInstance:
       propertyPath: sceneScript
       value: 
       objectReference: {fileID: 519420035}
+    - target: {fileID: 401101042616641674, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
+      propertyPath: playerHPBar
+      value: 
+      objectReference: {fileID: 184915006}
+    - target: {fileID: 401101042616641674, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
+      propertyPath: playerMPBar
+      value: 
+      objectReference: {fileID: 381477662}
     - target: {fileID: 961670862706035090, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
       propertyPath: mainCamera
       value: 
@@ -366,6 +379,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!224 &381477662 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 974666440, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &414957773
 PrefabInstance:
   m_ObjectHideFlags: 0

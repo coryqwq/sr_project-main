@@ -197,6 +197,14 @@ PrefabInstance:
       propertyPath: sceneScript
       value: 
       objectReference: {fileID: 519420035}
+    - target: {fileID: 401101042616641674, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
+      propertyPath: playerHPBar
+      value: 
+      objectReference: {fileID: 1421683306}
+    - target: {fileID: 401101042616641674, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
+      propertyPath: playerMPBar
+      value: 
+      objectReference: {fileID: 1421683305}
     - target: {fileID: 961670862706035090, guid: 88d6250499be2d44ebf91b7db6e36c43, type: 3}
       propertyPath: mainCamera
       value: 
@@ -1330,6 +1338,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+--- !u!224 &1421683305 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 974666440, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1421683306 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 302457654, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+  m_PrefabInstance: {fileID: 1421683304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1430648334
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -50,7 +50,6 @@ public class GameState : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("PlayerHP", 100);
         int i = SceneManager.GetActiveScene().buildIndex;
 
         //set title level

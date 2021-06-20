@@ -5088,8 +5088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edae9fd4d5f6a1428b33dbcfef50ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMPBar: {fileID: 0}
-  playerHPBar: {fileID: 0}
+  playerMPBar: {fileID: 1505227889760783461, guid: 20351479a56cd714e8adf099699d39ec, type: 3}
+  playerHPBar: {fileID: 6277169405261032184, guid: 7fb3afb5efe63e44b94323d28698290f, type: 3}
   playerMPMax: 495.9
   playerHPMax: 1544
 --- !u!82 &5046526599577145037
