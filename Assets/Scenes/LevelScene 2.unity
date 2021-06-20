@@ -337,7 +337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319416144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.62, y: -1.33, z: 9.41}
+  m_LocalPosition: {x: -1.62, y: -1.33, z: 52.4}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children:
   - {fileID: 523647473}
@@ -658,7 +658,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1101,6 +1101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreenCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6487428770986011269, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef0c5ca36288804d8483bdbe7abd234, type: 3}
 --- !u!114 &1040288319 stripped
@@ -1273,6 +1277,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4433918227438102107, guid: 4b35d866521afeb468b57c7a2aaec937, type: 3}
   m_PrefabInstance: {fileID: 1247066104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1279064684
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3840926928998048103, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926928998048103, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.25018373
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476244, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840926930393476251, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
+      propertyPath: m_Name
+      value: EnvrionmentalParticles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43fc75cefd5b7434d8f32e8de6c3a3e1, type: 3}
 --- !u!1001 &1299347852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1424,6 +1493,10 @@ PrefabInstance:
     - target: {fileID: 2282395231651945063, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282395231651945063, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbdb86d8b973b2438434c93982448a0, type: 3}

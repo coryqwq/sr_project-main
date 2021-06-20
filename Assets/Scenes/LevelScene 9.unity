@@ -537,7 +537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -1522, y: -1001}
+  m_AnchoredPosition: {x: -1522, y: -1171.02}
   m_SizeDelta: {x: 3523, y: 276}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &290988010
@@ -1049,6 +1049,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 26.29, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &568970013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7823516592118012888, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+  m_PrefabInstance: {fileID: 1447069454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &660512132 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4516738091309545988, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
@@ -1367,6 +1372,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 26.29, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1145672209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7823516592118012888, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+  m_PrefabInstance: {fileID: 8397074835178975383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1244428657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1616,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7823516592118012888, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: m_Name
+      value: Dialogue1
+      objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.size
       value: 3
@@ -1832,6 +1846,10 @@ PrefabInstance:
       propertyPath: levelTitle
       value: 
       objectReference: {fileID: 71245388}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogueObject
+      value: 
+      objectReference: {fileID: 568970013}
     - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: anim.Array.size
       value: 5
@@ -2506,7 +2524,7 @@ MonoBehaviour:
   - {fileID: 2044453170406455042, guid: bc527ba35bb885c4dbbd1d372987cab4, type: 3}
   - {fileID: 7703672258037539979, guid: f803f6d9efc45824c8cd15c855d7b975, type: 3}
   maxHP: 1000
-  currentHP: 1000
+  currentHP: 1
   attackRate0: 0.5
   attackRate1: 0.1
   attackRate2: 10
@@ -2998,7 +3016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[9].sentences.Array.data[0]
-      value: I WILL RATHER DIE DEFEATING YOU THAN SERVE THIS WRETCHED WORLD!
+      value: I WOULD RATHER DIE DEFEATING YOU THAN SERVE THIS WRETCHED WORLD!
       objectReference: {fileID: 0}
     - target: {fileID: 7823516592118012890, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: dialogue.Array.data[9].sentences.Array.data[1]
@@ -3020,6 +3038,10 @@ PrefabInstance:
       propertyPath: levelTitle
       value: 
       objectReference: {fileID: 71245388}
+    - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
+      propertyPath: dialogueObject
+      value: 
+      objectReference: {fileID: 1145672209}
     - target: {fileID: 7823516592503081406, guid: a5107fde72e87f949ade5a6f285a4f43, type: 3}
       propertyPath: anim.Array.size
       value: 5

@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     public AudioClip[] voiceLine;
     public int voiceIndex = 0;
 
-    public Queue<string> sentences;
+    private Queue<string> sentences;
     public int index = 0;
 
     public bool dialogueStart = true;
@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
         //start closing animation for dialogue box and last character to speak
-        if (sentences.Count == 0 && typing == false && index == dialogueTriggerScript.dialogue.Length - 1)
+        if (sentences.Count == 0 && typing == false && index == dialogueTriggerScript.dialogue.Length - 1 )
         {
             EndDialogue();
             index = 0;

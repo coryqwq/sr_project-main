@@ -12,7 +12,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         DialogueManager dialogueManagerScript = dialogueManager.GetComponent<DialogueManager>();
         dialogueManagerScript.dialogueObject = gameObject;
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        
+        dialogueManagerScript.StartDialogue(dialogue);
         gameObject.SetActive(false);
     }
 }

@@ -132,7 +132,7 @@ public class EnemyBossController : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("PlayerMP") < 100)
             {
-                PlayerPrefs.SetInt("PlayerMP", PlayerPrefs.GetInt("PlayerMP") + 5);
+                PlayerPrefs.SetInt("PlayerMP", PlayerPrefs.GetInt("PlayerMP") + 2);
             }
             var main = ps.GetComponent<ParticleSystem>().main;
             main.startLifetime = particleLifetime;

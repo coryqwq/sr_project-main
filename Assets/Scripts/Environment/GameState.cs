@@ -217,7 +217,7 @@ public class GameState : MonoBehaviour
     {
         blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
         cutscene2.SetActive(true);
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(5);
         blackScreen.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(1);
         cutscene2.SetActive(false);

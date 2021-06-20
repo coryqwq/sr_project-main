@@ -405,6 +405,7 @@ public class PlayerController : MonoBehaviour
         }
         if (dash)
         {
+            DashSFX();
             if (!isGrounded)
             {
                 rb.velocity += new Vector3(direction, 1, 0) * dashForce;
@@ -505,5 +506,10 @@ public class PlayerController : MonoBehaviour
     void HitSFX()
     {
         audioSource.PlayOneShot(sfx[5]);
+    }
+
+    void DashSFX()
+    {
+        audioSource.PlayOneShot(sfx[6]);
     }
 }
