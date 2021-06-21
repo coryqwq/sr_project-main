@@ -126,7 +126,6 @@ public class PlayerController : MonoBehaviour
         if (PlayerPrefs.GetInt("PlayerHP") <= 0 && !flag6)
         {
             enableInput = false;
-            rb.drag = 1000;
             rb.useGravity = true;
             anim.SetTrigger("Dying");
             alive = false;

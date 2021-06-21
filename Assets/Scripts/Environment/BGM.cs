@@ -67,7 +67,7 @@ public class BGM : MonoBehaviour
                 bgmSource.GetComponent<AudioSource>().Play();
             }
         }
-        if (currentSceneIndex == 9)
+        if (currentSceneIndex == 9 || currentSceneIndex == 10)
         {
             if (bgmSource.GetComponent<AudioSource>().clip != bgm[4])
             {
